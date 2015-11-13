@@ -6,6 +6,7 @@
 #include "XMLDemo.h"
 #include "XMLDemoDlg.h"
 #include "afxdialogex.h"
+#include "LoadXML.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -49,19 +50,26 @@ END_MESSAGE_MAP()
 
 CXMLDemoDlg::CXMLDemoDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CXMLDemoDlg::IDD, pParent)
+    , m_szKeyName(_T(""))
+    , m_szKeyValue(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 void CXMLDemoDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialogEx::DoDataExchange(pDX);
+    CDialogEx::DoDataExchange(pDX);
+    DDX_Text(pDX, IDC_NAME, m_szKeyName);
+    DDX_Text(pDX, IDC_VALUE, m_szKeyValue);
 }
 
 BEGIN_MESSAGE_MAP(CXMLDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+    ON_BN_CLICKED(IDC_BT_SELECTFILE, &CXMLDemoDlg::OnBnClickedBtSelectfile)
+    ON_BN_CLICKED(IDC_BT_GET, &CXMLDemoDlg::OnBnClickedBtGet)
+    ON_BN_CLICKED(IDC_BT_SET, &CXMLDemoDlg::OnBnClickedBtSet)
 END_MESSAGE_MAP()
 
 
@@ -97,7 +105,9 @@ BOOL CXMLDemoDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO:  在此添加额外的初始化代码
-
+    ((CStatic*)GetDlgItem(IDC_STATIC_FILEPATH))->SetWindowText(_T("E:\\GitCode\\GitProject\\XMLDemo\\XMLDemo\\XMLTemplate\\Response.xml"));
+    m_szKeyName = _T("EBD/EBDID");
+    UpdateData(FALSE);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -150,3 +160,76 @@ HCURSOR CXMLDemoDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CXMLDemoDlg::OnBnClickedBtSelectfile()
+{
+    // TODO:  在此添加控件通知处理程序代码
+    CFileDialog dlg(TRUE);
+    if (IDOK == dlg.DoModal ())
+    {
+        SetDlgItemText(IDC_STATIC_FILEPATH, dlg.GetPathName());
+    }
+}
+
+
+void CXMLDemoDlg::OnBnClickedBtGet()
+{
+    // TODO:  在此添加控件通知处理程序代码
+    CString path;
+    GetDlgItemText(IDC_STATIC_FILEPATH, path);
+    if (path.IsEmpty ())
+    {
+        return;
+    }
+    UpdateData(TRUE);
+
+    CLoadXML xml(path);
+
+    if (xml.init())
+    {
+        CComBSTR str;
+//         if (xml.get_attr_string(CComBSTR(m_szKeyName), CComBSTR(_T("text")), str))
+//         {
+//             m_szKeyValue = str;
+//             UpdateData(FALSE);
+//         } 
+        if (xml.get_node_text(CComBSTR(m_szKeyName), str))
+        {
+            m_szKeyValue = str;
+            UpdateData(FALSE);
+        }
+        xml.release();
+    }
+}
+
+
+void CXMLDemoDlg::OnBnClickedBtSet()
+{
+    // TODO:  在此添加控件通知处理程序代码
+    CString path;
+    GetDlgItemText(IDC_STATIC_FILEPATH, path);
+    if (path.IsEmpty())
+    {
+        return;
+    }
+    UpdateData(TRUE);
+
+    CLoadXML xml(path);
+
+    if (xml.init())
+    {
+        CComBSTR str = m_szKeyValue;
+        //         if (xml.get_attr_string(CComBSTR(m_szKeyName), CComBSTR(_T("text")), str))
+        //         {
+        //             m_szKeyValue = str;
+        //             UpdateData(FALSE);
+        //         } 
+        if (xml.set_node_text(CComBSTR(m_szKeyName), str))
+        {
+            m_szKeyValue = str;
+            UpdateData(FALSE);
+        }
+        xml.release();
+    }
+}
