@@ -146,6 +146,7 @@
     <ClCompile Include="HttpHead.cpp" />
     <ClCompile Include="HttpServer.cpp" />
     <ClCompile Include="HttpServerDlg.cpp" />
+    <ClCompile Include="LoadXML.cpp" />
     <ClCompile Include="Serverthread.cpp" />
     <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -163,6 +164,7 @@
     <ClInclude Include="HttpHead.h" />
     <ClInclude Include="HttpServer.h" />
     <ClInclude Include="HttpServerDlg.h" />
+    <ClInclude Include="LoadXML.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Serverthread.h" />
     <ClInclude Include="StdAfx.h" />
