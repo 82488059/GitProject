@@ -101,6 +101,7 @@ BOOL CHttpClientDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
     //m_strUrl = _T("http://192.168.1.177:8089");
     m_strUrl = _T("http://127.0.0.1:8089");
+    m_strUrl = _T("http://192.168.1.189:8080/Servlet3.0.demo/upload");
     UpdateData(FALSE);
 	// TODO:  在此添加额外的初始化代码
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -196,7 +197,7 @@ void CHttpClientDlg::OnBnClickedButton1()
     //if (SUCCESS == m_http.HttpPost(m_strUrl, pBuf, size, s))
     if (SUCCESS == m_http.HttpPost(m_strUrl, pPostBuffer, len, s))
     {
-        TRACE(s.c_str ());
+        //TRACE(s.c_str ());
     }
     delete pBuf;
     pBuf = NULL;

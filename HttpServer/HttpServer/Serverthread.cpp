@@ -7,9 +7,9 @@
 
 volatile int g_nConnection=0;//连接的个数
 volatile BOOL g_bListening=FALSE;//侦听套接字状态
-volatile UINT g_nPortServer=8089;//服务端口
+volatile UINT g_nPortServer=23;//服务端口
 CString g_strDirect="c:\\WebSite\\";//服务路径
-CString g_strIPServer = "127.0.0.1";//服务器地址
+CString g_strIPServer = "192.168.1.177";//服务器地址
 CString g_strDefault="Default.htm";//缺省网页的名字
 CMyBlockSocket g_sListen;//侦听套接字
 

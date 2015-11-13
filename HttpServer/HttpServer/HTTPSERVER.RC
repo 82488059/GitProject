@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Chinese (P.R.C.) resources
+// 中文(简体，中国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
-#ifdef _WIN32
 LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 #pragma code_page(936)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -27,18 +25,18 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -66,15 +64,15 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDR_MAINFRAME           ICON    DISCARDABLE     "res\\HttpServer.ico"
+IDR_MAINFRAME           ICON                    "res\\HttpServer.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+IDD_ABOUTBOX DIALOG 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于 HttpServer"
 FONT 9, "宋体"
 BEGIN
@@ -84,24 +82,26 @@ BEGIN
     DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
 END
 
-IDD_HTTPSERVER_DIALOG DIALOGEX 0, 0, 309, 207
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+IDD_HTTPSERVER_DIALOG DIALOGEX 0, 0, 309, 234
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "HttpServer"
-FONT 9, "宋体"
+FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "开始服务",IDOK,249,7,50,14
-    PUSHBUTTON      "关闭",IDCANCEL,249,133,50,14
-    PUSHBUTTON      "停止服务",IDC_BTN_STOP,249,49,50,14
-    LISTBOX         IDC_LIST_INFO,7,7,230,153,LBS_NOINTEGRALHEIGHT | 
-                    LBS_NOSEL | WS_VSCROLL | WS_HSCROLL,WS_EX_CLIENTEDGE
-    LTEXT           "状态",IDC_STATIC_STATUS,21,170,39,12
-    PUSHBUTTON      "设置路径",IDC_BTN_SETPATH,249,90,50,14
-    LTEXT           "路径",IDC_STATIC_PATH,90,170,191,23
+    PUSHBUTTON      "关闭",IDCANCEL,249,144,50,14
+    PUSHBUTTON      "停止服务",IDC_BTN_STOP,249,87,50,14
+    LISTBOX         IDC_LIST_INFO,7,7,230,153,LBS_NOINTEGRALHEIGHT | LBS_NOSEL | WS_VSCROLL | WS_HSCROLL,WS_EX_CLIENTEDGE
+    LTEXT           "状态",IDC_STATIC_STATUS,7,204,39,12
+    PUSHBUTTON      "设置路径",IDC_BTN_SETPATH,249,117,50,14
+    LTEXT           "路径",IDC_STATIC_PATH,76,204,191,23
+    EDITTEXT        IDC_EDIT_PORT,76,185,100,15,ES_AUTOHSCROLL
+    LTEXT           "SERVER IP:",IDC_STATIC,7,165,41,8
+    LTEXT           "SERVER PORT:",IDC_STATIC,7,187,49,8
+    CONTROL         "",IDC_IPADDRESS,"SysIPAddress32",WS_TABSTOP,76,164,100,15
 END
 
 
-#ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
 //
 // Version
@@ -124,18 +124,13 @@ BEGIN
     BEGIN
         BLOCK "080404b0"
         BEGIN
-            VALUE "Comments", "\0"
-            VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "HttpServer Microsoft 基础类应用程序\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
-            VALUE "InternalName", "HttpServer\0"
-            VALUE "LegalCopyright", "版权所有 (C) 2000\0"
-            VALUE "LegalTrademarks", "\0"
-            VALUE "OriginalFilename", "HttpServer.EXE\0"
-            VALUE "PrivateBuild", "\0"
-            VALUE "ProductName", "HttpServer 应用程序\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
-            VALUE "SpecialBuild", "\0"
+            VALUE "FileDescription", "HttpServer Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "HttpServer"
+            VALUE "LegalCopyright", "版权所有 (C) 2000"
+            VALUE "OriginalFilename", "HttpServer.EXE"
+            VALUE "ProductName", "HttpServer 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
         END
     END
     BLOCK "VarFileInfo"
@@ -144,8 +139,6 @@ BEGIN
     END
 END
 
-#endif    // !_MAC
-
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -153,7 +146,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO DISCARDABLE 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -168,7 +161,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 299
         TOPMARGIN, 7
-        BOTTOMMARGIN, 200
+        BOTTOMMARGIN, 227
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -179,13 +172,13 @@ END
 // String Table
 //
 
-STRINGTABLE DISCARDABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "关于 HttpServer(&A)..."
     IDP_SOCKETS_INIT_FAILED "Windows 通信端口初始化失败。"
 END
 
-#endif    // Chinese (P.R.C.) resources
+#endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

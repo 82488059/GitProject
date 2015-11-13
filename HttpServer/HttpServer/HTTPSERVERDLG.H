@@ -1,6 +1,7 @@
 // HttpServerDlg.h : header file
 //
 
+#include "afxcmn.h"
 #if !defined(AFX_HTTPSERVERDLG_H__745FF0A7_8B0C_11D4_8DCA_0000E839EC5E__INCLUDED_)
 #define AFX_HTTPSERVERDLG_H__745FF0A7_8B0C_11D4_8DCA_0000E839EC5E__INCLUDED_
 
@@ -48,6 +49,9 @@ protected:
 	afx_msg void OnBtnSetpath();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
+    CIPAddressCtrl m_ctrlServerIp;
+    int m_port;
 };
 
 //{{AFX_INSERT_LOCATION}}

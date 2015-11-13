@@ -116,7 +116,7 @@ int CHttpClient::ExecuteRequest(LPCTSTR strMethod, LPCTSTR strUrl, LPCTSTR strPo
         
         strResponse = cs;
         //cs.ReleaseBuffer();
-
+        m_pFile->SendRequest(NULL, 0, (LPVOID)strPostData, strPostData == NULL ? 0 : postDataSize);
         Clear();
     }
     catch (CInternetException* e)

@@ -65,6 +65,7 @@ END_MESSAGE_MAP()
 
 CHttpServerDlg::CHttpServerDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CHttpServerDlg::IDD, pParent)
+    , m_port(0)
 {
 	//{{AFX_DATA_INIT(CHttpServerDlg)
 		// NOTE: the ClassWizard will add member initialization here
@@ -75,14 +76,16 @@ CHttpServerDlg::CHttpServerDlg(CWnd* pParent /*=NULL*/)
 
 void CHttpServerDlg::DoDataExchange(CDataExchange* pDX)
 {
-	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CHttpServerDlg)
-	DDX_Control(pDX, IDC_STATIC_PATH, m_StaPath);
-	DDX_Control(pDX, IDC_STATIC_STATUS, m_StaStatus);
-	DDX_Control(pDX, IDC_BTN_STOP, m_BtnStop);
-	DDX_Control(pDX, IDOK, m_BtnStart);
-	DDX_Control(pDX, IDC_LIST_INFO, m_ListInfo);
-	//}}AFX_DATA_MAP
+    CDialog::DoDataExchange(pDX);
+    //{{AFX_DATA_MAP(CHttpServerDlg)
+    DDX_Control(pDX, IDC_STATIC_PATH, m_StaPath);
+    DDX_Control(pDX, IDC_STATIC_STATUS, m_StaStatus);
+    DDX_Control(pDX, IDC_BTN_STOP, m_BtnStop);
+    DDX_Control(pDX, IDOK, m_BtnStart);
+    DDX_Control(pDX, IDC_LIST_INFO, m_ListInfo);
+    //}}AFX_DATA_MAP
+    DDX_Control(pDX, IDC_IPADDRESS, m_ctrlServerIp);
+    DDX_Text(pDX, IDC_EDIT_PORT, m_port);
 }
 
 BEGIN_MESSAGE_MAP(CHttpServerDlg, CDialog)
@@ -132,6 +135,9 @@ BOOL CHttpServerDlg::OnInitDialog()
 	m_StaStatus.SetWindowText("停止服务");
 	m_StaPath.SetWindowText("服务器路径："+g_strDirect);
 	
+    m_ctrlServerIp.SetWindowText(_T("127.0.0.1"));
+    m_port = 8080;
+    UpdateData(FALSE);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -209,6 +215,12 @@ void CHttpServerDlg::OnBtnStop()
 
 void CHttpServerDlg::OnStartServer() 
 {
+    UpdateData(TRUE);
+    g_nPortServer = m_port;
+    CString szip;
+    m_ctrlServerIp.GetWindowText(szip);
+    g_strIPServer = szip;
+
 	try 
 	{
 		CSocketAddress saServer;
