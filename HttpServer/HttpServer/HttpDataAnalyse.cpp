@@ -118,6 +118,8 @@ bool CHttpDataAnalyse::Analyse()
             int line2 = MovePNextLine(p[3], m_bufSize - (m_pBuf - p[2]));
             p[4] = p[3];
             int line3 = MovePNextLine(p[4], m_bufSize - (m_pBuf - p[3]));
+            p[5] = p[4];
+            int line4 = MovePNextLine(p[5], m_bufSize - (m_pBuf - p[4]));
             char* pname = strstr(pNonius, "filename");
             if (NULL == pname)
             {
@@ -130,8 +132,10 @@ bool CHttpDataAnalyse::Analyse()
             do {
                 ++tmp.nameSize;
             } while ('\"' != *++pname);
-            tmp.data = p[4];
-            pNonius = p[4];
+            CString szName(tmp.fileName, tmp.nameSize);
+            m_fileNameVector.push_back (szName);
+            tmp.data = p[5];
+            pNonius = p[5];
         }
         else
         {
@@ -186,4 +190,9 @@ int CHttpDataAnalyse::MovePNextLine(char*&p, int size)
         p = pEnd + 1;
     }
     return nLineLength;
+}
+
+const std::vector<CString>& CHttpDataAnalyse::GetAllFileName()const
+{
+    return m_fileNameVector;
 }

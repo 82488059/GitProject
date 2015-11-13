@@ -217,6 +217,7 @@ IMPLEMENT_DYNAMIC(CMyHttpBlockSocket, CMyBlockSocket)
 CMyHttpBlockSocket::CMyHttpBlockSocket()
 {
 	m_pReadBuf = new char[nSizeRecv];
+    memset(m_pReadBuf, 0, nSizeRecv);
 	m_nReadBuf = 0;
 }
 

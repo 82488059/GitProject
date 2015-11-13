@@ -1,5 +1,7 @@
 #pragma once
 #include <list>
+#include <vector>
+
 struct ScmTar{
     char* fileName;
     int nameSize;
@@ -21,13 +23,15 @@ public:
     bool Analyse();
 
     // 读取一行;
-    int ReadLine(char* outBufLine, int outBufSize);
+    int ReadLine(char* outBufLine, int outBufMaxSize);
     // 设置分段字符串;
     bool SetStringSeparates(const char* const pStringSeparates, int nStringSeparatesLength);
-    //
-    int ReadLine(const char*const buf, const int bufSize, char* outBufLine, int outBufSize);
-    //
+    // 读取一行
+    int ReadLine(const char*const bufIn, const int bufInSize, char* outBufLine, int outBufMaxSize);
+    // 移动指针到下一行
     int MovePNextLine(char*&p, int size);
+    // 
+    const std::vector<CString>& GetAllFileName()const ;
 private:
     // data
     char* m_pBuf;
@@ -39,5 +43,6 @@ private:
     int m_nStringSeparatesLength;
 
     std::list<ScmTar> m_tarList;
+    std::vector<CString> m_fileNameVector;
 };
 

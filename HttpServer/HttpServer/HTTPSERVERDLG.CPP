@@ -136,6 +136,7 @@ BOOL CHttpServerDlg::OnInitDialog()
 	m_StaPath.SetWindowText("·þÎñÆ÷Â·¾¶£º"+g_strDirect);
 	
     m_ctrlServerIp.SetWindowText(_T("127.0.0.1"));
+    m_ctrlServerIp.SetWindowText(_T("192.168.1.180"));
     m_port = 8080;
     UpdateData(FALSE);
 	return TRUE;  // return TRUE  unless you set the focus to a control
