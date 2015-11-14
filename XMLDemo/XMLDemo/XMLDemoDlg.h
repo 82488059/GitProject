@@ -35,4 +35,6 @@ public:
     CString m_szKeyName;
     CString m_szKeyValue;
     afx_msg void OnBnClickedBtSet();
+	afx_msg void OnBnClickedBtAddnode();
+	afx_msg void OnBnClickedBtCopynode();
 };

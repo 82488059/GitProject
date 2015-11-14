@@ -70,6 +70,8 @@ BEGIN_MESSAGE_MAP(CXMLDemoDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BT_SELECTFILE, &CXMLDemoDlg::OnBnClickedBtSelectfile)
     ON_BN_CLICKED(IDC_BT_GET, &CXMLDemoDlg::OnBnClickedBtGet)
     ON_BN_CLICKED(IDC_BT_SET, &CXMLDemoDlg::OnBnClickedBtSet)
+	ON_BN_CLICKED(IDC_BT_ADDNODE, &CXMLDemoDlg::OnBnClickedBtAddnode)
+	ON_BN_CLICKED(IDC_BT_COPYNODE, &CXMLDemoDlg::OnBnClickedBtCopynode)
 END_MESSAGE_MAP()
 
 
@@ -105,8 +107,10 @@ BOOL CXMLDemoDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO:  在此添加额外的初始化代码
-    ((CStatic*)GetDlgItem(IDC_STATIC_FILEPATH))->SetWindowText(_T("E:\\GitCode\\GitProject\\XMLDemo\\XMLDemo\\XMLTemplate\\Response.xml"));
-    m_szKeyName = _T("EBD/EBDID");
+	//((CStatic*)GetDlgItem(IDC_STATIC_FILEPATH))->SetWindowText(_T("E:\\GitCode\\GitProject\\XMLDemo\\XMLDemo\\XMLTemplate\\Response.xml"));
+	//m_szKeyName = _T("EBD/EBDID");
+	((CStatic*)GetDlgItem(IDC_STATIC_FILEPATH))->SetWindowText(_T("E:\\code\\GitHub\\trunk\\XMLDemo\\XMLDemo\\xxx.xml"));
+	m_szKeyName = _T("aes");
     UpdateData(FALSE);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -232,4 +236,77 @@ void CXMLDemoDlg::OnBnClickedBtSet()
         }
         xml.release();
     }
+}
+
+
+void CXMLDemoDlg::OnBnClickedBtAddnode()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	CString path;
+	GetDlgItemText(IDC_STATIC_FILEPATH, path);
+	if (path.IsEmpty())
+	{
+		return;
+	}
+	UpdateData(TRUE);
+
+	CLoadXML xml(path);
+
+	if (xml.init())
+	{
+		CComBSTR str = m_szKeyValue;
+		//         if (xml.get_attr_string(CComBSTR(m_szKeyName), CComBSTR(_T("text")), str))
+		//         {
+		//             m_szKeyValue = str;
+		//             UpdateData(FALSE);
+		//         } 
+		CComBSTR text("<new>ll<new>");
+		if (xml.add_node_text(CComBSTR(m_szKeyName), CComBSTR("XXXXXX"), text))
+		{
+			m_szKeyValue = str;
+			UpdateData(FALSE);
+		}
+		xml.release();
+	}
+}
+
+
+void CXMLDemoDlg::OnBnClickedBtCopynode()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	CString path;
+	GetDlgItemText(IDC_STATIC_FILEPATH, path);
+	if (path.IsEmpty())
+	{
+		return;
+	}
+	UpdateData(TRUE);
+
+	CLoadXML xml(path);
+
+	if (xml.init())
+	{
+		CComBSTR str = m_szKeyValue;
+		//         if (xml.get_attr_string(CComBSTR(m_szKeyName), CComBSTR(_T("text")), str))
+		//         {
+		//             m_szKeyValue = str;
+		//             UpdateData(FALSE);
+		//         } 
+		IXMLDOMNodePtr node;
+		if (!xml.get_node(CComBSTR("aes"), node))
+		{
+			TRACE("get_node ERRROR");
+			return;
+		}
+		//CComBSTR text("<new>ll<new>");
+		if (!xml.add_node(CComBSTR(m_szKeyName), node))
+		{
+			TRACE("add error");
+			return;
+		}
+		m_szKeyValue = str;
+		UpdateData(FALSE);
+		TRACE("OK");
+		xml.release();
+	}
 }
