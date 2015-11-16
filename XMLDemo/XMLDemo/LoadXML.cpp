@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "LoadXML.h"
 
-#include<msxml2.h>
+//#include<msxml2.h>
+#import "msxml3.dll"
 #include<comutil.h>
 
 #pragma   comment(lib, "comsupp.lib ")
