@@ -148,8 +148,9 @@ bool CHttpDataAnalyse::Analyse()
     {
         for (auto it = m_tarList.begin(); it != m_tarList.end();++it)
         {
+            CString path = _T("recv\\");
             CString name(it->fileName, it->nameSize);
-            FILE*fp = fopen(name, "wb");
+            FILE*fp = fopen(path+name, "wb");
             if (fp)
             {
                 int s = fwrite(it->data, 1, it->dataSize, fp);

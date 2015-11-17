@@ -99,10 +99,11 @@ BOOL CHttpClientDlg::OnInitDialog()
 	//  执行此操作
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
-    //m_strUrl = _T("http://192.168.1.177:8089");
-    //m_strUrl = _T("http://127.0.0.1:8089");
-    m_strUrl = _T("http://192.168.12.70:8080/HttpCGISrv.exe");
+    //m_strUrl = _T("http://192.168.1.180:8089");
+    m_strUrl = _T("http://127.0.0.1:8089");
+    //m_strUrl = _T("http://192.168.12.70:8080/HttpCGISrv.exe");
     //m_strUrl = _T("http://192.168.1.189:8080/Servlet3.0.demo/upload");
+    //m_strUrl = _T("http://192.168.1.197:8080/HttpCGISrv.exe";)
     UpdateData(FALSE);
 	// TODO:  在此添加额外的初始化代码
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE

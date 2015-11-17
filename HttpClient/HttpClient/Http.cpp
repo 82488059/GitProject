@@ -98,13 +98,23 @@ int CHttpClient::ExecuteRequest(LPCTSTR strMethod, LPCTSTR strUrl, LPCTSTR strPo
         char szChars[BUFFER_SIZE + 1] = { 0 };
         string strRawResponse = _T("");
         UINT nReaded = 0;
+
+        FILE* fp = fopen("recv\\xx.tar", "wb");
+
         while ((nReaded = m_pFile->Read((void*)szChars, BUFFER_SIZE)) > 0)
         {
+            if (fp)
+            {
+                fwrite(szChars, nReaded, 1, fp);
+            }
             szChars[nReaded] = '\0';
             strRawResponse += szChars;
             memset(szChars, 0, BUFFER_SIZE + 1);
         }
-
+        if (fp)
+        {
+            fclose(fp);
+        }
         int unicodeLen = MultiByteToWideChar(CP_UTF8, 0, strRawResponse.c_str(), -1, NULL, 0);
         WCHAR *pUnicode = new WCHAR[unicodeLen + 1];
         memset(pUnicode, 0, (unicodeLen + 1)*sizeof(wchar_t));

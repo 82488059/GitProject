@@ -125,7 +125,7 @@ UINT ServerThreadProc(LPVOID pParam)
     char hdrFmt[] =
         "HTTP/1.0 200 OK\r\n"
         "Server: MySocket Server\r\n"
-        "Date: %s\r\n"
+        //"Date: %s\r\n"
         "Content-Type: text/html\r\n"
         "Accept-Ranges: bytes\r\n"
         "Content-Length: %d\r\n\r\n";
@@ -272,12 +272,13 @@ UINT ServerThreadProc(LPVOID pParam)
 
 				LogRequest(pParam, request2, saClient);
 				//向浏览器发送“出错信息”
-				//nBytesSent=sConnect.Write(hdrErr, strlen(hdrErr), 10);
+                //nBytesSent=sConnect.Write(hdrErr, strlen(hdrErr), 10);
+                //nBytesSent=sConnect.Write(hdrFmt, strlen(hdrFmt), 10);
 
                 {
                     //FILE *fp = fopen("", "rb");
                     CFile cfile;
-                    if (cfile.Open("EBDB_100000000001.tar", CFile::modeRead | CFile::typeBinary))
+                    if (cfile.Open("recv\\EBDB_100000000001.tar", CFile::modeRead | CFile::typeBinary))
                     {
                         int size = cfile.GetLength();
 
@@ -298,7 +299,7 @@ UINT ServerThreadProc(LPVOID pParam)
                 // 
                 CHttpDataAnalyse ana(pData, nDataSize);
                 {
-                    FILE* fp = fopen(StringSeparates, "wb");
+                    FILE* fp = fopen(CString(_T("recv\\"))+StringSeparates, "wb");
                     if (fp)
                     {
                         fwrite(pData, nDataSize, 1, fp);
