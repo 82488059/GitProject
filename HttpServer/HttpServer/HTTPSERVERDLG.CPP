@@ -137,7 +137,7 @@ BOOL CHttpServerDlg::OnInitDialog()
 	
     m_ctrlServerIp.SetWindowText(_T("127.0.0.1"));
     m_ctrlServerIp.SetWindowText(_T("192.168.1.180"));
-    m_port = 8080;
+    m_port = 8089;
     UpdateData(FALSE);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -225,14 +225,14 @@ void CHttpServerDlg::OnStartServer()
 	try 
 	{
 		CSocketAddress saServer;
-		if(g_strIPServer.IsEmpty()) 
+//		if(g_strIPServer.IsEmpty()) 
 		{
 			saServer = CSocketAddress(INADDR_ANY, (USHORT) g_nPortServer);
 		}
-		else 
-		{
-			saServer = CSocketAddress(g_strIPServer, (USHORT) g_nPortServer);
-		}
+// 		else 
+// 		{
+// 			saServer = CSocketAddress(g_strIPServer, (USHORT) g_nPortServer);
+// 		}
 		g_sListen.Create();
 		//∞Û∂®µÿ÷∑
 		g_sListen.Bind(saServer);

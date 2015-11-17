@@ -1,11 +1,13 @@
 #include "stdafx.h"
+
+// #include<msxml2.h>
+#include<comutil.h>
+#import "msxml3.dll"
+
 #include "LoadXML.h"
 
-#include<msxml2.h>
-#include<comutil.h>
-
 #pragma   comment(lib, "comsupp.lib ")
-#pragma comment(lib,"msxml2.lib")
+// #pragma comment(lib,"msxml2.lib")
 
 CLoadXML::CLoadXML(const CString& szFileName)
 :m_szFileName(szFileName)

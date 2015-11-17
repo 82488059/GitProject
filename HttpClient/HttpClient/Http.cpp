@@ -88,9 +88,9 @@ int CHttpClient::ExecuteRequest(LPCTSTR strMethod, LPCTSTR strUrl, LPCTSTR strPo
         m_pFile->AddRequestHeaders("Connection: keep-alive");
 
 //         m_pFile->AddRequestHeaders("--7953519a4b6c412c9d50acef63fb22bd\r\n\
-// Content-Disposition: form-data; name=\"file\"; filename=\"aaa.tar\"");
+// Content-Disposition: form-data; name=\"file\"; filename=\"EBDT1.tar\"");
 
-        //"Content-Disposition: form-data; name="file"; filename="aaa.tar""
+        //"Content-Disposition: form-data; name="file"; filename="EBDT1.tar""
         m_pFile->SendRequest(NULL, 0, (LPVOID)strPostData, strPostData == NULL ? 0 : postDataSize);
         //char end[] = { "--53758868654a4bcd91675cf3ee92a801--\r\n" };
         //m_pFile->SendRequest(NULL, 0, (LPVOID)(LPCTSTR)end, strlen (end));
@@ -116,7 +116,7 @@ int CHttpClient::ExecuteRequest(LPCTSTR strMethod, LPCTSTR strUrl, LPCTSTR strPo
         
         strResponse = cs;
         //cs.ReleaseBuffer();
-        m_pFile->SendRequest(NULL, 0, (LPVOID)strPostData, strPostData == NULL ? 0 : postDataSize);
+        //m_pFile->SendRequest(NULL, 0, (LPVOID)strPostData, strPostData == NULL ? 0 : postDataSize);
         Clear();
     }
     catch (CInternetException* e)

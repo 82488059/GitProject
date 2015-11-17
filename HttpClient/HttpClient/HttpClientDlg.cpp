@@ -100,8 +100,9 @@ BOOL CHttpClientDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
     //m_strUrl = _T("http://192.168.1.177:8089");
-    m_strUrl = _T("http://127.0.0.1:8089");
-    m_strUrl = _T("http://192.168.1.189:8080/Servlet3.0.demo/upload");
+    //m_strUrl = _T("http://127.0.0.1:8089");
+    m_strUrl = _T("http://192.168.12.70:8080/HttpCGISrv.exe");
+    //m_strUrl = _T("http://192.168.1.189:8080/Servlet3.0.demo/upload");
     UpdateData(FALSE);
 	// TODO:  在此添加额外的初始化代码
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -178,14 +179,16 @@ void CHttpClientDlg::OnBnClickedButton1()
 //     }
 //     int size = filelength(fileno(pf));
     CFile cfile;
-    if (!cfile.Open("aaa.tar", CFile::modeRead | CFile::typeBinary))
+    if (!cfile.Open("EBDB100000000145.tar", CFile::modeRead | CFile::typeBinary))
     {
         return;
     }
     int size = cfile.GetLength();
     char *pBuf = new char[size];
 
-    char head[] = { "--53758868654a4bcd91675cf3ee92a801\r\nContent-Disposition: form-data; name=\"file\"; filename=\"aaa.tar\"\r\n\r\n" };
+    char head[] = { "--53758868654a4bcd91675cf3ee92a801\r\nContent-Disposition: form-data; name=\"file\"; filename=\"EBDB100000000145.tar\"\r\n\
+Content-Type: application/x-tar; charset=utf-8\r\n\r\n" };
+    
     char end[] = { "\r\n--53758868654a4bcd91675cf3ee92a801--\r\n" };
     cfile.Read(pBuf, size);
     int len = strlen(head) + strlen(end) + size;

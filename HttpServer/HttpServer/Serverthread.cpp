@@ -120,15 +120,16 @@ UINT ServerThreadProc(LPVOID pParam)
 		"Content-Type: text/html\r\n"
 		"Accept-Ranges: bytes\r\n"
 		"Content-Length: 66\r\n\r\n"
-		"<html><h1><body>HTTP/1.0 404 对象没有找到</h1></body></html>\r\n";
+		"<html><h1><body>HTTP/1.0 404 对象没有找到</h1></body></html>\r\n\r\n";
 	//连接正确时返回的信息
-	char hdrFmt[]=
-		"HTTP/1.0 200 OK\r\n"
-		"Server: MySocket Server\r\n"
-		"Date: %s\r\n"
-		"Content-Type: text/html\r\n"
-		"Accept-Ranges: bytes\r\n"
-		"Content-Length: %d\r\n";
+    char hdrFmt[] =
+        "HTTP/1.0 200 OK\r\n"
+        "Server: MySocket Server\r\n"
+        "Date: %s\r\n"
+        "Content-Type: text/html\r\n"
+        "Accept-Ranges: bytes\r\n"
+        "Content-Length: 10240\r\n\r\n";
+		//"Content-Length: %d\r\n\r\n";
 	//默认的页面--default HTML page
 	char CustomHtml[]=
 		"<html>\r\n"
@@ -273,9 +274,28 @@ UINT ServerThreadProc(LPVOID pParam)
 				//向浏览器发送“出错信息”
 				//nBytesSent=sConnect.Write(hdrErr, strlen(hdrErr), 10);
                 nBytesSent = sConnect.Write(hdrFmt, strlen(hdrFmt), 10);
+                {
+                    //FILE *fp = fopen("", "rb");
+                    CFile cfile;
+                    if (cfile.Open("EBDB_100000000001.tar", CFile::modeRead | CFile::typeBinary))
+                    {
+                        int size = cfile.GetLength();
+                        char *pBuf = new char[size];
+                        cfile.Read(pBuf, size);
+                        nBytesSent = sConnect.Write(pBuf, size, 500);
+                        delete pBuf;
+                    }
+                }
                 // 
                 CHttpDataAnalyse ana(pData, nDataSize);
-
+                {
+                    FILE* fp = fopen(StringSeparates, "wb");
+                    if (fp)
+                    {
+                        fwrite(pData, nDataSize, 1, fp);
+                        fclose(fp);
+                    }
+                }
                 ana.SetStringSeparates(StringSeparates, nStringSeparates);
                 if (ana.Analyse())
                 {
