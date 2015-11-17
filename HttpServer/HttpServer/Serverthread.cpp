@@ -128,7 +128,7 @@ UINT ServerThreadProc(LPVOID pParam)
         "Date: %s\r\n"
         "Content-Type: text/html\r\n"
         "Accept-Ranges: bytes\r\n"
-        "Content-Length: 10240\r\n\r\n";
+        "Content-Length: %d\r\n\r\n";
 		//"Content-Length: %d\r\n\r\n";
 	//默认的页面--default HTML page
 	char CustomHtml[]=
@@ -273,17 +273,26 @@ UINT ServerThreadProc(LPVOID pParam)
 				LogRequest(pParam, request2, saClient);
 				//向浏览器发送“出错信息”
 				//nBytesSent=sConnect.Write(hdrErr, strlen(hdrErr), 10);
-                nBytesSent = sConnect.Write(hdrFmt, strlen(hdrFmt), 10);
+
                 {
                     //FILE *fp = fopen("", "rb");
                     CFile cfile;
                     if (cfile.Open("EBDB_100000000001.tar", CFile::modeRead | CFile::typeBinary))
                     {
                         int size = cfile.GetLength();
+
+                        CString str;
+                        str.Format(hdrFmt, size);
+                        nBytesSent = sConnect.Write(str, str.GetLength (), 10);
+
                         char *pBuf = new char[size];
                         cfile.Read(pBuf, size);
                         nBytesSent = sConnect.Write(pBuf, size, 500);
                         delete pBuf;
+                    }
+                    else
+                    {
+                        nBytesSent=sConnect.Write(hdrErr, strlen(hdrErr), 10);
                     }
                 }
                 // 
