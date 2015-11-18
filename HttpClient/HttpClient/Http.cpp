@@ -115,6 +115,7 @@ int CHttpClient::ExecuteRequest(LPCTSTR strMethod, LPCTSTR strUrl, LPCTSTR strPo
         {
             fclose(fp);
         }
+
         int unicodeLen = MultiByteToWideChar(CP_UTF8, 0, strRawResponse.c_str(), -1, NULL, 0);
         WCHAR *pUnicode = new WCHAR[unicodeLen + 1];
         memset(pUnicode, 0, (unicodeLen + 1)*sizeof(wchar_t));

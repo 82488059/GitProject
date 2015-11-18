@@ -1,4 +1,6 @@
 #pragma once
+#import "msxml3.dll"
+
 class CLoadXML
 {
 public:

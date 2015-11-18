@@ -2,6 +2,8 @@
 
 #include "stdafx.h"
 #include "blocksock.h"
+#include "WinTar.h"
+#include "LoadXML.h"
 #define SERVERMAXBUF 5000
 #define MAXLINELENGTH 100
 
@@ -278,7 +280,7 @@ UINT ServerThreadProc(LPVOID pParam)
                 {
                     //FILE *fp = fopen("", "rb");
                     CFile cfile;
-                    if (cfile.Open("recv\\EBDB_100000000001.tar", CFile::modeRead | CFile::typeBinary))
+                    if (cfile.Open("XML\\EBDB_100000000001.tar", CFile::modeRead | CFile::typeBinary))
                     {
                         int size = cfile.GetLength();
 
@@ -310,6 +312,27 @@ UINT ServerThreadProc(LPVOID pParam)
                 if (ana.Analyse())
                 {
                     TRACE("ok");
+                }
+                CString szTarName;
+                auto v = ana.GetAllFileName();
+                for (int i = 0; i < v.size(); ++i)
+                {
+                    szTarName = v[i];
+                    szTarName.MakeUpper();
+                    if (-1 != szTarName.Find(_T(".TAR")))
+                    {
+                        break;
+                    }
+                }
+                CWinTar tar;
+                tar.UnPackTar("recv\\"+szTarName, "recv");
+                szTarName = szTarName.Left(szTarName.GetLength() - 4);
+
+                CLoadXML xml("recv\\" + szTarName +"\\EBDB_100000000145"/*+szTarName+*/".xml");
+
+                if (xml.init ())
+                {
+                    TRACE("XML OK");
                 }
 			}
 			else 

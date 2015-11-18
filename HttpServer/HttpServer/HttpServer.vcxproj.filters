@@ -39,6 +39,9 @@
     <ClCompile Include="LoadXML.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WinTar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HttpServer.rc">
@@ -71,6 +74,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadXML.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinTar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

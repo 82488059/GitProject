@@ -52,6 +52,7 @@ protected:
 public:
     CIPAddressCtrl m_ctrlServerIp;
     int m_port;
+    afx_msg void OnBnClickedBtTar();
 };
 
 //{{AFX_INSERT_LOCATION}}

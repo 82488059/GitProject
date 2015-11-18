@@ -104,6 +104,7 @@ BOOL CHttpClientDlg::OnInitDialog()
     //m_strUrl = _T("http://192.168.12.70:8080/HttpCGISrv.exe");
     //m_strUrl = _T("http://192.168.1.189:8080/Servlet3.0.demo/upload");
     //m_strUrl = _T("http://192.168.1.197:8080/HttpCGISrv.exe";)
+    m_strUrl = _T("http://192.168.12.221:8080/EmergencyBroadcast/upload");
     UpdateData(FALSE);
 	// TODO:  在此添加额外的初始化代码
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -172,22 +173,22 @@ void CHttpClientDlg::OnBnClickedButton1()
 {
     // TODO:  在此添加控件通知处理程序代码
     UpdateData(TRUE);
+
+
+
     std::string s;
-//     FILE *pf = fopen("eos307.tar", "rb");
-//     if (NULL == pf)
-//     {
-//         return;
-//     }
-//     int size = filelength(fileno(pf));
     CFile cfile;
-    if (!cfile.Open("EBDB100000000145.tar", CFile::modeRead | CFile::typeBinary))
+// #define  FILE_NAME_STR "EBDB_100000000001.tar"
+#define  FILE_NAME_STR "EBDB_100000000002.tar"
+    if (!cfile.Open("XML\\"FILE_NAME_STR, CFile::modeRead | CFile::typeBinary))
     {
         return;
     }
+
     int size = cfile.GetLength();
     char *pBuf = new char[size];
 
-    char head[] = { "--53758868654a4bcd91675cf3ee92a801\r\nContent-Disposition: form-data; name=\"file\"; filename=\"EBDB100000000145.tar\"\r\n\
+    char head[] = { "--53758868654a4bcd91675cf3ee92a801\r\nContent-Disposition: form-data; name=\"file\"; filename=\""FILE_NAME_STR"\"\r\n\
 Content-Type: application/x-tar; charset=utf-8\r\n\r\n" };
     
     char end[] = { "\r\n--53758868654a4bcd91675cf3ee92a801--\r\n" };

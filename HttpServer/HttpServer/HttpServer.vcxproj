@@ -50,6 +50,8 @@
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Python27\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Python27\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -154,6 +156,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="WinTar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HttpServer.rc" />
@@ -168,6 +171,7 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Serverthread.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="WinTar.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\HttpServer.ico" />

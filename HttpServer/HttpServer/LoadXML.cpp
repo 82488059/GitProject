@@ -21,6 +21,10 @@ CLoadXML::~CLoadXML()
 }
 bool CLoadXML::init()
 {
+    if (FAILED(CoInitialize(NULL)))
+    {
+        return false;
+    }
     if (NULL != m_xmlDocument.p)
         m_xmlDocument.Release();
 
@@ -53,8 +57,11 @@ bool CLoadXML::init()
 
 void CLoadXML::release()
 {
+    CoUninitialize();
     if (NULL != m_xmlDocument.p)
+    {
         m_xmlDocument.Release();
+    }
 }
 
 CString CLoadXML::GetXMLString(const CString& path)
