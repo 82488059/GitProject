@@ -4,6 +4,7 @@
 #include "blocksock.h"
 #include "WinTar.h"
 #include "LoadXML.h"
+#include "Analyse.h"
 #define SERVERMAXBUF 5000
 #define MAXLINELENGTH 100
 
@@ -298,7 +299,7 @@ UINT ServerThreadProc(LPVOID pParam)
                         nBytesSent=sConnect.Write(hdrErr, strlen(hdrErr), 10);
                     }
                 }
-                // 
+
                 CHttpDataAnalyse ana(pData, nDataSize);
                 {
                     FILE* fp = fopen(CString(_T("recv\\"))+StringSeparates, "wb");
@@ -313,6 +314,7 @@ UINT ServerThreadProc(LPVOID pParam)
                 {
                     TRACE("ok");
                 }
+
                 CString szTarName;
                 auto v = ana.GetAllFileName();
                 for (int i = 0; i < v.size(); ++i)
@@ -328,12 +330,9 @@ UINT ServerThreadProc(LPVOID pParam)
                 tar.UnPackTar("recv\\"+szTarName, "recv");
                 szTarName = szTarName.Left(szTarName.GetLength() - 4);
 
-                CLoadXML xml("recv\\" + szTarName +"\\EBDB_100000000145"/*+szTarName+*/".xml");
+                CAnalyse analyse("recv\\" + szTarName);
 
-                if (xml.init ())
-                {
-                    TRACE("XML OK");
-                }
+                analyse.Run();
 			}
 			else 
 			{

@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Analyse.cpp" />
     <ClCompile Include="Blocksock.cpp" />
     <ClCompile Include="HttpDataAnalyse.cpp" />
     <ClCompile Include="HttpHead.cpp" />
@@ -157,11 +158,13 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="WinTar.cpp" />
+    <ClCompile Include="XMLAnalysis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HttpServer.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Analyse.h" />
     <ClInclude Include="Blocksock.h" />
     <ClInclude Include="HttpDataAnalyse.h" />
     <ClInclude Include="HttpHead.h" />
@@ -172,6 +175,7 @@
     <ClInclude Include="Serverthread.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="WinTar.h" />
+    <ClInclude Include="XMLAnalysis.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\HttpServer.ico" />
