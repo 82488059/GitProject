@@ -36,6 +36,12 @@
     <ClInclude Include="Http.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="XMLAnalysis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FindXml.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HttpClient.cpp">
@@ -48,6 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Http.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLAnalysis.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FindXml.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

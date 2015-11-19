@@ -101,14 +101,17 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FindXml.h" />
     <ClInclude Include="Http.h" />
     <ClInclude Include="HttpClient.h" />
     <ClInclude Include="HttpClientDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="XMLAnalysis.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FindXml.cpp" />
     <ClCompile Include="Http.cpp" />
     <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="HttpClientDlg.cpp" />
@@ -116,6 +119,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="XMLAnalysis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HttpClient.rc" />

@@ -128,7 +128,10 @@ bool CLoadXML::get_attr_string(const CComBSTR& nodeName, const CComBSTR& attrNam
 bool CLoadXML::get_node_text(const CComBSTR& nodeName, CComBSTR& outValue)
 {
     if (NULL == this->m_xmlDocument.p)
+    {
+        TRACE("%s ERROR!", m_szFileName);
         return false;
+    }
 
     CComPtr<IXMLDOMNode> node;
     do 
@@ -137,12 +140,18 @@ bool CLoadXML::get_node_text(const CComBSTR& nodeName, CComBSTR& outValue)
 
         hr = m_xmlDocument->selectSingleNode(nodeName, &node);
         if (FAILED(hr) || NULL == node.p)
+        {
+            TRACE("%s not find!", CString(nodeName));
             break;
+        }
         
         hr = node->get_text(&outValue);
 
         if (FAILED(hr))
+        {
+            TRACE("%s text null!", CString(nodeName));
             break;
+        }
 
         node.Release();
         return true;
