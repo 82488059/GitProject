@@ -104,7 +104,7 @@ BOOL CHttpClientDlg::OnInitDialog()
     //m_strUrl = _T("http://192.168.12.70:8080/HttpCGISrv.exe");
     //m_strUrl = _T("http://192.168.1.189:8080/Servlet3.0.demo/upload");
     //m_strUrl = _T("http://192.168.1.197:8080/HttpCGISrv.exe";)
-    //m_strUrl = _T("http://192.168.12.221:8080/EmergencyBroadcast/upload");
+    m_strUrl = _T("http://192.168.12.221:8080/EmergencyBroadcast/upload");
     UpdateData(FALSE);
 	// TODO:  在此添加额外的初始化代码
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -173,8 +173,6 @@ void CHttpClientDlg::OnBnClickedButton1()
 {
     // TODO:  在此添加控件通知处理程序代码
     UpdateData(TRUE);
-
-
 
     std::string s;
     CFile cfile;

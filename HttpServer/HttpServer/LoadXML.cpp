@@ -13,7 +13,10 @@ CLoadXML::CLoadXML(const CString& szFileName)
 :m_szFileName(szFileName)
 {
 }
-
+CLoadXML::CLoadXML()
+: m_szFileName()
+{
+}
 
 CLoadXML::~CLoadXML()
 {
@@ -182,9 +185,9 @@ bool CLoadXML::set_node_text(const CComBSTR& nodeName, const CComBSTR& inValue)
         
         if (FAILED(hr))
             break;
-        COleVariant V = m_szFileName;
-        VARIANT var = V;
-        m_xmlDocument->save(var);
+//         COleVariant V = m_szFileName;
+//         VARIANT var = V;
+//         m_xmlDocument->save(var);
         node.Release();
         return true;
 
@@ -229,9 +232,9 @@ bool CLoadXML::add_node_text(const CComBSTR& parentNodeName, const CComBSTR& nod
 		hr = node->appendChild(newLineText, &lastChild);
 		if (FAILED(hr))
 			break;
-		COleVariant V = m_szFileName;
-		VARIANT var = V;
-		m_xmlDocument->save(var);
+// 		COleVariant V = m_szFileName;
+// 		VARIANT var = V;
+// 		m_xmlDocument->save(var);
 		node.Release();
 		return true;
 
@@ -294,14 +297,31 @@ bool CLoadXML::add_node(const CComBSTR& parentNodeName, IXMLDOMNodePtr& inNode)
 		hr = node->appendChild(newLineText, &lastChild);
 		if (FAILED(hr))
 			break;
-		COleVariant V = m_szFileName;
-		VARIANT var = V;
-		m_xmlDocument->save(var);
+// 		COleVariant V = m_szFileName;
+// 		VARIANT var = V;
+// 		hr = m_xmlDocument->save(var);
 		node.Release();
-
 		return true;
 
 	} while (0);
 	node.Release();
 	return false;
+}
+bool CLoadXML::save()
+{
+    COleVariant V = m_szFileName;
+    VARIANT var = V;
+    HRESULT hr = m_xmlDocument->save(var);
+    if (FAILED(hr))
+        return false;
+    return true;
+}
+bool CLoadXML::save_as(const CString& path)
+{
+    COleVariant V = m_szFileName;
+    VARIANT var = V;
+    HRESULT hr = m_xmlDocument->save(var);
+    if (FAILED(hr))
+        return false;
+    return true;
 }

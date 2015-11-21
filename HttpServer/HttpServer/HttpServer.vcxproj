@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="Analyse.cpp" />
     <ClCompile Include="Blocksock.cpp" />
+    <ClCompile Include="Http.cpp" />
     <ClCompile Include="HttpDataAnalyse.cpp" />
     <ClCompile Include="HttpHead.cpp" />
     <ClCompile Include="HttpServer.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="Analyse.h" />
     <ClInclude Include="Blocksock.h" />
+    <ClInclude Include="Http.h" />
     <ClInclude Include="HttpDataAnalyse.h" />
     <ClInclude Include="HttpHead.h" />
     <ClInclude Include="HttpServer.h" />

@@ -53,6 +53,7 @@ public:
     CIPAddressCtrl m_ctrlServerIp;
     int m_port;
     afx_msg void OnBnClickedBtTar();
+    afx_msg void OnBnClickedBtXmltest();
 };
 
 //{{AFX_INSERT_LOCATION}}

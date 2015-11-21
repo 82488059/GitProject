@@ -98,6 +98,7 @@ BEGIN_MESSAGE_MAP(CHttpServerDlg, CDialog)
 	ON_BN_CLICKED(IDC_BTN_SETPATH, OnBtnSetpath)
 	//}}AFX_MSG_MAP
     ON_BN_CLICKED(IDC_BT_TAR, &CHttpServerDlg::OnBnClickedBtTar)
+    ON_BN_CLICKED(IDC_BT_XMLTEST, &CHttpServerDlg::OnBnClickedBtXmltest)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -311,4 +312,14 @@ void CHttpServerDlg::OnBnClickedBtTar()
     PyArg_Parse(pReturn, "i", &result);
 
     Py_Finalize();
+}
+#include "Analyse.h"
+#include "LoadXML.h"
+void CHttpServerDlg::OnBnClickedBtXmltest()
+{
+    // TODO:  在此添加控件通知处理程序代码
+
+    CAnalyse an("");
+    CLoadXML xml1;
+    an.CreateEBMStateResponseXml("EBMStateResponse.Xml", xml1);
 }
