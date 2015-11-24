@@ -6,19 +6,19 @@ class CLoadXML;
 class CAnalyse
 {
 public:
-    CAnalyse(const CString& path);
+    CAnalyse(const CString& path, const CString& templatePath, const CString& useFilePath);
     ~CAnalyse();
 
-    bool Run();
+    bool Run(CString&tarName);
 
     bool FindXml(const CString& szDirPath, CString& xmlFile);
-
+	
     // 根据类型回应
-    bool EBMStateResponse();
-    bool EBDResponse();
-    bool ConnectionCheck();
-    bool EBMStateRequest();
-    bool EBM();
+    bool EBMStateResponse(CString& tarName);
+    bool EBDResponse(CString& tarName);
+    bool ConnectionCheck(CString& tarName);
+    bool EBMStateRequest(CString& tarName);
+    bool EBM(CString& tarName);
 
     // 构造基础XML
     bool CreateEBMStateResponseXml(const CString& path, CLoadXML& xml);
@@ -27,12 +27,15 @@ public:
     bool CreateEBMStateRequestXml(const CString& path, CLoadXML& xml);
     bool CreateEBMXml(const CString& path, CLoadXML& xml);
 
-    bool CreateTemplateXml(const CString&type, CLoadXML& xml, const CString& path);
+    bool CreateTemplateXml(const CString&type, CLoadXML& xml/*, const CString& path*/);
 
-    bool Post(const CString& szFileName);
+//    bool Post(const CString& szFileName);
 private:
-    CString m_dirPath;
+    CString m_xmlPathIn; // 收到的tar包，解压出来的xml路径
+    CString m_xmlPath; // xmlPath
+	CString m_useFilePath; //用户设置用于保存文件路径
     CLoadXML* m_pXml;
-    std::map<CString, std::function<bool()>> m_funcMap;
+	CString m_templatePath; //模板文件存放路径，即CGI程序路径
+    std::map<CString, std::function<bool(CString&)>> m_funcMap;
 };
 

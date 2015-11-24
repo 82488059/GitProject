@@ -330,9 +330,9 @@ UINT ServerThreadProc(LPVOID pParam)
                 tar.UnPackTar("recv\\"+szTarName, "recv");
                 szTarName = szTarName.Left(szTarName.GetLength() - 4);
 
-                CAnalyse analyse("recv\\" + szTarName);
-
-                analyse.Run();
+//                CAnalyse analyse("recv\\" + szTarName);
+// 
+//                 analyse.Run();
 			}
 			else 
 			{

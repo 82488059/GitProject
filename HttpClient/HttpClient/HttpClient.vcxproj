@@ -101,6 +101,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigHttpClient.h" />
     <ClInclude Include="Http.h" />
     <ClInclude Include="HttpClient.h" />
     <ClInclude Include="HttpClientDlg.h" />
@@ -109,6 +110,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BigHttpClient.cpp" />
     <ClCompile Include="Http.cpp" />
     <ClCompile Include="HttpClient.cpp" />
     <ClCompile Include="HttpClientDlg.cpp" />

@@ -268,6 +268,10 @@ int CMyHttpBlockSocket::ReadHttpResponse(char* pch, const int nSize, const int n
 	}
 	do {
 		nBytesToRead = min(nSizeRecv, nSize - nBytesRead);
+        if (0 == nBytesToRead)
+        {
+            return nBytesRead;
+        }
 		nBytesThisTime = Receive(pch, nBytesToRead, nSecs);
 		if(nBytesThisTime <= 0) break;
 		pch += nBytesThisTime;

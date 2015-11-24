@@ -39,9 +39,6 @@
     <ClCompile Include="LoadXML.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WinTar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="XMLAnalysis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,6 +46,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Http.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\EOS307\Common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinTar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\EOS307\HttpPostRequest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -85,9 +91,6 @@
     <ClInclude Include="LoadXML.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WinTar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="XMLAnalysis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -95,6 +98,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Http.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\EOS307\Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinTar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\EOS307\HttpPostRequest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

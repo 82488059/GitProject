@@ -269,49 +269,49 @@ void CHttpServerDlg::OnBtnSetpath()
 	}
 }
 
-#include <Python.h>
+//#include <Python.h>
 void CHttpServerDlg::OnBnClickedBtTar()
 {
     // TODO:  在此添加控件通知处理程序代码
-    Py_Initialize();
-    if (!Py_IsInitialized())
-    {
-        return;
-    }
+//     Py_Initialize();
+//     if (!Py_IsInitialized())
+//     {
+//         return;
+//     }
 //     PyObject * pModule = NULL;
 //     PyObject * pFunc = NULL;
 //     PyObject* pName = NULL;
 
-    int r = PyRun_SimpleString("import sys");
-    r = PyRun_SimpleString("sys.path.append('./recv/')");
-
-    PyObject *pName = PyString_FromString("MyTar");
-    PyObject * pModule = PyImport_Import(pName);
-    if (!pModule)
-    {
-        return;
-    }
-    PyObject* pDict = PyModule_GetDict(pModule);
-    if (!pDict)
-    {
-        return;
-    }
-    PyObject* pFunc = PyDict_GetItemString(pDict, "tar_one");
-    if (!pFunc || !PyCallable_Check(pFunc))
-    {
-        return;
-    }
-    PyObject* pArgs = PyTuple_New(1);
-    PyTuple_SetItem(pArgs, 0, Py_BuildValue("s", "XML\\EBDB_100000000001.xml"));
-
-    PyObject* pReturn = NULL;
-
-    pReturn = PyEval_CallObject(pFunc, pArgs);
-
-    int result;
-    PyArg_Parse(pReturn, "i", &result);
-
-    Py_Finalize();
+//     int r = PyRun_SimpleString("import sys");
+//     r = PyRun_SimpleString("sys.path.append('./recv/')");
+// 
+//     PyObject *pName = PyString_FromString("MyTar");
+//     PyObject * pModule = PyImport_Import(pName);
+//     if (!pModule)
+//     {
+//         return;
+//     }
+//     PyObject* pDict = PyModule_GetDict(pModule);
+//     if (!pDict)
+//     {
+//         return;
+//     }
+//     PyObject* pFunc = PyDict_GetItemString(pDict, "tar_one");
+//     if (!pFunc || !PyCallable_Check(pFunc))
+//     {
+//         return;
+//     }
+//     PyObject* pArgs = PyTuple_New(1);
+//     PyTuple_SetItem(pArgs, 0, Py_BuildValue("s", "XML\\EBDB_100000000001.xml"));
+// 
+//     PyObject* pReturn = NULL;
+// 
+//     pReturn = PyEval_CallObject(pFunc, pArgs);
+// 
+//     int result;
+//     PyArg_Parse(pReturn, "i", &result);
+// 
+//     Py_Finalize();
 }
 #include "Analyse.h"
 #include "LoadXML.h"
@@ -319,7 +319,7 @@ void CHttpServerDlg::OnBnClickedBtXmltest()
 {
     // TODO:  在此添加控件通知处理程序代码
 
-    CAnalyse an("");
-    CLoadXML xml1;
-    an.CreateEBMStateResponseXml("EBMStateResponse.Xml", xml1);
+//     CAnalyse an("");
+//     CLoadXML xml1;
+//     an.CreateEBMStateResponseXml("EBMStateResponse.Xml", xml1);
 }

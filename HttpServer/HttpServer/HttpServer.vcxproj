@@ -118,6 +118,7 @@
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Eos307\;$(SolutionDir)..\HttpCGISrv\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -143,6 +144,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\EOS307\Common.cpp" />
+    <ClCompile Include="..\..\EOS307\HttpPostRequest.cpp" />
     <ClCompile Include="Analyse.cpp" />
     <ClCompile Include="Blocksock.cpp" />
     <ClCompile Include="Http.cpp" />
@@ -165,6 +168,8 @@
     <ResourceCompile Include="HttpServer.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\EOS307\Common.h" />
+    <ClInclude Include="..\..\EOS307\HttpPostRequest.h" />
     <ClInclude Include="Analyse.h" />
     <ClInclude Include="Blocksock.h" />
     <ClInclude Include="Http.h" />
