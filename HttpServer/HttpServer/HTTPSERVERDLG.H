@@ -54,6 +54,7 @@ public:
     int m_port;
     afx_msg void OnBnClickedBtTar();
     afx_msg void OnBnClickedBtXmltest();
+    afx_msg void OnBnClickedBtDb();
 };
 
 //{{AFX_INSERT_LOCATION}}

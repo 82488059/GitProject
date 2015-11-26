@@ -146,8 +146,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\EOS307\Common.cpp" />
     <ClCompile Include="..\..\EOS307\HttpPostRequest.cpp" />
+    <ClCompile Include="ADOConn.cpp" />
+    <ClCompile Include="ADOConnect.cpp" />
     <ClCompile Include="Analyse.cpp" />
     <ClCompile Include="Blocksock.cpp" />
+    <ClCompile Include="DBBasicInfo.cpp" />
     <ClCompile Include="Http.cpp" />
     <ClCompile Include="HttpDataAnalyse.cpp" />
     <ClCompile Include="HttpHead.cpp" />
@@ -170,8 +173,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\EOS307\Common.h" />
     <ClInclude Include="..\..\EOS307\HttpPostRequest.h" />
+    <ClInclude Include="ADOConn.h" />
+    <ClInclude Include="ADOConnect.h" />
     <ClInclude Include="Analyse.h" />
     <ClInclude Include="Blocksock.h" />
+    <ClInclude Include="DBBasicInfo.h" />
     <ClInclude Include="Http.h" />
     <ClInclude Include="HttpDataAnalyse.h" />
     <ClInclude Include="HttpHead.h" />

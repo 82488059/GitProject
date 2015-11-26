@@ -13,6 +13,9 @@
       <UniqueIdentifier>{4c6f9d7c-aa18-418c-a923-dbdd5a550fb5}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{e7619292-24c7-422d-aa26-5a6a29c82b63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Blocksock.cpp">
@@ -56,6 +59,15 @@
     </ClCompile>
     <ClCompile Include="..\..\EOS307\HttpPostRequest.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ADOConn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DBBasicInfo.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
+    <ClCompile Include="ADOConnect.cpp">
+      <Filter>DB</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +120,15 @@
     </ClInclude>
     <ClInclude Include="..\..\EOS307\HttpPostRequest.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADOConn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DBBasicInfo.h">
+      <Filter>DB</Filter>
+    </ClInclude>
+    <ClInclude Include="ADOConnect.h">
+      <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

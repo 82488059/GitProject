@@ -99,6 +99,7 @@ BEGIN_MESSAGE_MAP(CHttpServerDlg, CDialog)
 	//}}AFX_MSG_MAP
     ON_BN_CLICKED(IDC_BT_TAR, &CHttpServerDlg::OnBnClickedBtTar)
     ON_BN_CLICKED(IDC_BT_XMLTEST, &CHttpServerDlg::OnBnClickedBtXmltest)
+    ON_BN_CLICKED(IDC_BT_DB, &CHttpServerDlg::OnBnClickedBtDb)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -322,4 +323,56 @@ void CHttpServerDlg::OnBnClickedBtXmltest()
 //     CAnalyse an("");
 //     CLoadXML xml1;
 //     an.CreateEBMStateResponseXml("EBMStateResponse.Xml", xml1);
+}
+
+#include "DBBasicInfo.h"
+
+void CHttpServerDlg::OnBnClickedBtDb()
+{
+    // TODO:  在此添加控件通知处理程序代码
+
+    CLoadXML xml("config/db.xml");
+
+
+    if (!xml.init())
+    {
+        return;
+    }
+    CString DATABASE;
+    if (!xml.get_node_text("CONFIG/DATABASE", DATABASE))
+    {
+        return;
+    }
+    CString UID;
+    if (!xml.get_node_text("CONFIG/UID", UID))
+    {
+        return;
+    }
+    CString PWD;
+    if (!xml.get_node_text("CONFIG/PWD", PWD))
+    {
+        return;
+    }
+    CString SERVER;
+    if (!xml.get_node_text("CONFIG/SERVER", SERVER))
+    {
+        return;
+    }
+    CDBBasicInfo db(SERVER, DATABASE, UID, PWD);
+
+    if (!db.OnInitAdoConnection ())
+    {
+        return;
+    }
+    if (db.ExecuteSQL("select * from BASIC_INFO"))
+    {
+        if (!db->adoEOF)
+        {
+            _variant_t var;
+            var = db->GetCollect("EBDID");
+            CString ID = var;
+        }
+    }
+
+
 }

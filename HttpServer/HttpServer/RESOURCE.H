@@ -19,6 +19,7 @@
 #define IDC_IPADDRESS                   1010
 #define IDC_BT_TAR                      1011
 #define IDC_BT_XMLTEST                  1012
+#define IDC_BT_DB                       1013
 
 // Next default values for new objects
 // 
