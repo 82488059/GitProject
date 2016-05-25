@@ -335,14 +335,16 @@ void CTestRegisterDlg::OnBnClickedOk()
 {
     // TODO:  在此添加控件通知处理程序代码
 
-    HANDLE hPhysical = ::CreateFile("\\\\.\\PHYSICALDRIVE0",
+    HANDLE hPhysical = ::CreateFileA("\\\\.\\PHYSICALDRIVE0",
         GENERIC_READ | GENERIC_WRITE,
         FILE_SHARE_READ | FILE_SHARE_WRITE, NULL,
         OPEN_EXISTING, 0, NULL);
 //    ::DeviceIoControl();
     CGetHDSerial get;
     CloseHandle(hPhysical);
-    CString s = get.GetHDSerial();
-    TRACE(s);
+    TRACE(get.GetHDSerial());
+    INT N = sizeof(UINT);
+    TRACE("%d", N);
+
     //CDialogEx::OnOK();
 }

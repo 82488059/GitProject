@@ -7,6 +7,7 @@ char  m_buffer[256];
 WORD  m_serial[256];
 DWORD m_OldInterruptAddress;
 DWORDLONG m_IDTR;
+//USHORT m_IDTR;
 
 // 等待硬盘空闲
 static unsigned int WaitHardDiskIdle()
@@ -162,12 +163,12 @@ void _stdcall CGetHDSerial::Win9xReadHDSerial(WORD * buffer)
         push eax
             //获取修改的中断的中断描述符（中断门）地址
             sidt m_IDTR
-            mov eax, dptr [m_IDTR+02h]
+            mov eax, dword ptr [m_IDTR+02h]
             add eax, 3 * 08h + 04h
             cli
             //保存原先的中断入口地址
             push ecx
-            mov ecx, dptr[eax]
+            mov ecx, dword ptr[eax]
             mov cx, word ptr[eax - 04h]
             mov dword ptr m_OldInterruptAddress, ecx
             pop ecx
