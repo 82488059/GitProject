@@ -48,6 +48,7 @@ END_MESSAGE_MAP()
 BEGIN_DHTML_EVENT_MAP(CTestHtmlDlg)
 	DHTML_EVENT_ONCLICK(_T("ButtonOK"), OnButtonOK)
 	DHTML_EVENT_ONCLICK(_T("ButtonCancel"), OnButtonCancel)
+    DHTML_EVENT_ONCLICK(_T("ButtonOK1"), OnButtonOK1)
 END_DHTML_EVENT_MAP()
 
 
@@ -162,4 +163,9 @@ HRESULT CTestHtmlDlg::OnButtonCancel(IHTMLElement* /*pElement*/)
 {
 	OnCancel();
 	return S_OK;
+}
+HRESULT CTestHtmlDlg::OnButtonOK1(IHTMLElement* /*pElement*/)
+{
+    MessageBox(_T("OnButtonOK1"));
+    return S_OK;
 }

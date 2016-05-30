@@ -20,6 +20,7 @@ public:
 
 	HRESULT OnButtonOK(IHTMLElement *pElement);
 	HRESULT OnButtonCancel(IHTMLElement *pElement);
+    HRESULT OnButtonOK1(IHTMLElement *pElement);
 
 // й╣ож
 protected:
