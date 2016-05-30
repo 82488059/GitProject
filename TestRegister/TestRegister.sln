@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestRegister", "TestRegister\TestRegister.vcxproj", "{9F44162D-D59E-45D9-A02F-B2E6305C18B2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.vcxproj", "{D935EA7C-82D7-4EBF-A9BA-5CAA82B98524}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetMacAddress", "GetMacAddress\GetMacAddress.vcxproj", "{43ABDBCF-9F75-43C2-9070-36244AE5F9EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{9F44162D-D59E-45D9-A02F-B2E6305C18B2}.Debug|Win32.Build.0 = Debug|Win32
 		{9F44162D-D59E-45D9-A02F-B2E6305C18B2}.Release|Win32.ActiveCfg = Release|Win32
 		{9F44162D-D59E-45D9-A02F-B2E6305C18B2}.Release|Win32.Build.0 = Release|Win32
-		{D935EA7C-82D7-4EBF-A9BA-5CAA82B98524}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D935EA7C-82D7-4EBF-A9BA-5CAA82B98524}.Debug|Win32.Build.0 = Debug|Win32
-		{D935EA7C-82D7-4EBF-A9BA-5CAA82B98524}.Release|Win32.ActiveCfg = Release|Win32
-		{D935EA7C-82D7-4EBF-A9BA-5CAA82B98524}.Release|Win32.Build.0 = Release|Win32
+		{43ABDBCF-9F75-43C2-9070-36244AE5F9EB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{43ABDBCF-9F75-43C2-9070-36244AE5F9EB}.Debug|Win32.Build.0 = Debug|Win32
+		{43ABDBCF-9F75-43C2-9070-36244AE5F9EB}.Release|Win32.ActiveCfg = Release|Win32
+		{43ABDBCF-9F75-43C2-9070-36244AE5F9EB}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
