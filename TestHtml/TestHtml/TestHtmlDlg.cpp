@@ -153,11 +153,6 @@ HCURSOR CTestHtmlDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-HRESULT CTestHtmlDlg::OnButtonOK(IHTMLElement* /*pElement*/)
-{
-	OnOK();
-	return S_OK;
-}
 
 HRESULT CTestHtmlDlg::OnButtonCancel(IHTMLElement* /*pElement*/)
 {
@@ -167,5 +162,14 @@ HRESULT CTestHtmlDlg::OnButtonCancel(IHTMLElement* /*pElement*/)
 HRESULT CTestHtmlDlg::OnButtonOK1(IHTMLElement* /*pElement*/)
 {
     MessageBox(_T("OnButtonOK1"));
+    return S_OK;
+}
+HRESULT CTestHtmlDlg::OnButtonOK(IHTMLElement* /*pElement*/)
+{
+    char ar[111] = { 1 };
+
+    char *p = NULL;
+    *p = 0;
+    OnOK();
     return S_OK;
 }

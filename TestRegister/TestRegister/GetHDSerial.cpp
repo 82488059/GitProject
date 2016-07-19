@@ -1,7 +1,8 @@
 
 #include "stdafx.h"
 #include "GetHDSerial.h"
-
+#pragma push
+#pragma warning(disable : 4996)
 
 char  m_buffer[256];
 WORD  m_serial[256];
