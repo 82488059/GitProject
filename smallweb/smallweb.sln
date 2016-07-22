@@ -7,6 +7,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smallweb", "smallweb\smallw
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lua", "Lua\Lua.vcxproj", "{4F579453-3790-4349-A7D8-FAE48931E84B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lualib", "Lualib\Lualib.vcxproj", "{DDE71546-A1FA-4292-959D-C56B7F360EB9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Luadll", "Luadll\Luadll.vcxproj", "{3B276CBD-277F-4184-954C-F5AF2227FA9F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luaInterpreter", "luaInterpreter\luaInterpreter.vcxproj", "{B27C82E6-C620-406B-A602-378BA458DC93}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luacompile", "luacompile\luacompile.vcxproj", "{2F20D594-5BEB-45BC-B23E-ACF56059B0B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +29,22 @@ Global
 		{4F579453-3790-4349-A7D8-FAE48931E84B}.Debug|Win32.Build.0 = Debug|Win32
 		{4F579453-3790-4349-A7D8-FAE48931E84B}.Release|Win32.ActiveCfg = Release|Win32
 		{4F579453-3790-4349-A7D8-FAE48931E84B}.Release|Win32.Build.0 = Release|Win32
+		{DDE71546-A1FA-4292-959D-C56B7F360EB9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DDE71546-A1FA-4292-959D-C56B7F360EB9}.Debug|Win32.Build.0 = Debug|Win32
+		{DDE71546-A1FA-4292-959D-C56B7F360EB9}.Release|Win32.ActiveCfg = Release|Win32
+		{DDE71546-A1FA-4292-959D-C56B7F360EB9}.Release|Win32.Build.0 = Release|Win32
+		{3B276CBD-277F-4184-954C-F5AF2227FA9F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3B276CBD-277F-4184-954C-F5AF2227FA9F}.Debug|Win32.Build.0 = Debug|Win32
+		{3B276CBD-277F-4184-954C-F5AF2227FA9F}.Release|Win32.ActiveCfg = Release|Win32
+		{3B276CBD-277F-4184-954C-F5AF2227FA9F}.Release|Win32.Build.0 = Release|Win32
+		{B27C82E6-C620-406B-A602-378BA458DC93}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B27C82E6-C620-406B-A602-378BA458DC93}.Debug|Win32.Build.0 = Debug|Win32
+		{B27C82E6-C620-406B-A602-378BA458DC93}.Release|Win32.ActiveCfg = Release|Win32
+		{B27C82E6-C620-406B-A602-378BA458DC93}.Release|Win32.Build.0 = Release|Win32
+		{2F20D594-5BEB-45BC-B23E-ACF56059B0B1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F20D594-5BEB-45BC-B23E-ACF56059B0B1}.Debug|Win32.Build.0 = Debug|Win32
+		{2F20D594-5BEB-45BC-B23E-ACF56059B0B1}.Release|Win32.ActiveCfg = Release|Win32
+		{2F20D594-5BEB-45BC-B23E-ACF56059B0B1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

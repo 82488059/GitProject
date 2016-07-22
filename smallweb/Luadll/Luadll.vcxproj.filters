@@ -15,190 +15,187 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lapi.c">
+    <ClCompile Include="..\Lua\lapi.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lauxlib.c">
+    <ClCompile Include="..\Lua\lauxlib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lbaselib.c">
+    <ClCompile Include="..\Lua\lbaselib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lbitlib.c">
+    <ClCompile Include="..\Lua\lbitlib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lcode.c">
+    <ClCompile Include="..\Lua\lcode.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lcorolib.c">
+    <ClCompile Include="..\Lua\lcorolib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lctype.c">
+    <ClCompile Include="..\Lua\lctype.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ldblib.c">
+    <ClCompile Include="..\Lua\ldblib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ldebug.c">
+    <ClCompile Include="..\Lua\ldebug.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ldo.c">
+    <ClCompile Include="..\Lua\ldo.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ldump.c">
+    <ClCompile Include="..\Lua\ldump.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lfunc.c">
+    <ClCompile Include="..\Lua\lfunc.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lgc.c">
+    <ClCompile Include="..\Lua\lgc.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="linit.c">
+    <ClCompile Include="..\Lua\linit.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="liolib.c">
+    <ClCompile Include="..\Lua\liolib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="llex.c">
+    <ClCompile Include="..\Lua\llex.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lmathlib.c">
+    <ClCompile Include="..\Lua\lmathlib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lmem.c">
+    <ClCompile Include="..\Lua\lmem.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="loadlib.c">
+    <ClCompile Include="..\Lua\loadlib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lobject.c">
+    <ClCompile Include="..\Lua\lobject.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lopcodes.c">
+    <ClCompile Include="..\Lua\lopcodes.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="loslib.c">
+    <ClCompile Include="..\Lua\loslib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lparser.c">
+    <ClCompile Include="..\Lua\lparser.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lstate.c">
+    <ClCompile Include="..\Lua\lstate.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lstring.c">
+    <ClCompile Include="..\Lua\lstring.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lstrlib.c">
+    <ClCompile Include="..\Lua\lstrlib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ltable.c">
+    <ClCompile Include="..\Lua\ltable.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ltablib.c">
+    <ClCompile Include="..\Lua\ltablib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="ltm.c">
+    <ClCompile Include="..\Lua\ltm.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lua.c">
+    <ClCompile Include="..\Lua\lundump.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lundump.c">
+    <ClCompile Include="..\Lua\lutf8lib.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lutf8lib.c">
+    <ClCompile Include="..\Lua\lvm.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="lvm.c">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="lzio.c">
+    <ClCompile Include="..\Lua\lzio.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="lapi.h">
+    <ClInclude Include="..\Lua\lapi.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lauxlib.h">
+    <ClInclude Include="..\Lua\lauxlib.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lcode.h">
+    <ClInclude Include="..\Lua\lcode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lctype.h">
+    <ClInclude Include="..\Lua\lctype.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ldebug.h">
+    <ClInclude Include="..\Lua\ldebug.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ldo.h">
+    <ClInclude Include="..\Lua\ldo.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lfunc.h">
+    <ClInclude Include="..\Lua\lfunc.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lgc.h">
+    <ClInclude Include="..\Lua\lgc.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="llex.h">
+    <ClInclude Include="..\Lua\llex.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="llimits.h">
+    <ClInclude Include="..\Lua\llimits.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lmem.h">
+    <ClInclude Include="..\Lua\lmem.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lobject.h">
+    <ClInclude Include="..\Lua\lobject.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lopcodes.h">
+    <ClInclude Include="..\Lua\lopcodes.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lparser.h">
+    <ClInclude Include="..\Lua\lparser.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lprefix.h">
+    <ClInclude Include="..\Lua\lprefix.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lstate.h">
+    <ClInclude Include="..\Lua\lstate.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lstring.h">
+    <ClInclude Include="..\Lua\lstring.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ltable.h">
+    <ClInclude Include="..\Lua\ltable.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="ltm.h">
+    <ClInclude Include="..\Lua\ltm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lua.h">
+    <ClInclude Include="..\Lua\lua.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lua.hpp">
+    <ClInclude Include="..\Lua\lua.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="luaconf.h">
+    <ClInclude Include="..\Lua\luaconf.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lualib.h">
+    <ClInclude Include="..\Lua\lualib.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lundump.h">
+    <ClInclude Include="..\Lua\lundump.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lvm.h">
+    <ClInclude Include="..\Lua\lvm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="lzio.h">
+    <ClInclude Include="..\Lua\lzio.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Makefile" />
+    <None Include="..\Lua\Makefile" />
   </ItemGroup>
 </Project>
