@@ -15,7 +15,7 @@ int main()
     if (L == NULL)
     {
         return -1;
-    } 
+    }  
 
     //2.╪стьLuaнд╪Ч  
     int bRet = luaL_loadfile(L, "test.lua");
