@@ -79,10 +79,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\ms\http\server\server.cpp" />
     <ClCompile Include="..\ms\socket\socket.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\ms\http\server\server.h" />
     <ClInclude Include="..\ms\mstring.h" />
     <ClInclude Include="..\ms\socket\socket.h" />
   </ItemGroup>

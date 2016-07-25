@@ -19,6 +19,9 @@
     <Filter Include="ms\socket">
       <UniqueIdentifier>{71c531ce-6ec6-41ab-b4e1-b40d867da82f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ms\http">
+      <UniqueIdentifier>{c2094fe2-b992-4fd9-9d96-bdf7cbab603e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,6 +30,9 @@
     <ClCompile Include="..\ms\socket\socket.cpp">
       <Filter>ms\socket</Filter>
     </ClCompile>
+    <ClCompile Include="..\ms\http\server\server.cpp">
+      <Filter>ms\http</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ms\socket\socket.h">
@@ -34,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="..\ms\mstring.h">
       <Filter>ms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ms\http\server\server.h">
+      <Filter>ms\http</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
