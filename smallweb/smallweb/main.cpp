@@ -77,6 +77,6 @@ int main()
 
     //7.¹Ø±Õstate  
     lua_close(L);
-
+    system("pause");
     return 0;
 }
