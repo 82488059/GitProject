@@ -33,6 +33,9 @@
     <ClCompile Include="..\ms\http\server\server.cpp">
       <Filter>ms\http</Filter>
     </ClCompile>
+    <ClCompile Include="..\ms\http\server\session.cpp">
+      <Filter>ms\http</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ms\socket\socket.h">
@@ -42,6 +45,9 @@
       <Filter>ms</Filter>
     </ClInclude>
     <ClInclude Include="..\ms\http\server\server.h">
+      <Filter>ms\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ms\http\server\session.h">
       <Filter>ms\http</Filter>
     </ClInclude>
   </ItemGroup>
