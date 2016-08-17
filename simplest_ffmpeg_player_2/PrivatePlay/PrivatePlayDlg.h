@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "video_decoder.h"
 
 
 // CPrivatePlayDlg ¶Ô»°¿ò
@@ -29,4 +30,11 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+    afx_msg void OnBnClickedBtPlay();
+    video_decoder decoder_;
+
+    static int output(const uint8_t* const* data, int w, int h, const int* linesize);
+    static void error_out(const std::string& err);
+
 };

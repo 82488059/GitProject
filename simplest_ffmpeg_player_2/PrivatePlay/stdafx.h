@@ -34,12 +34,10 @@
 #include <afxcontrolbars.h>     // 功能区和控件条的 MFC 支持
 
 
-
-
-
-
-
-
+#include <stdio.h>
+#include <tchar.h>
+#include <io.h>
+#include <direct.h>
 
 #ifdef _UNICODE
 #if defined _M_IX86
