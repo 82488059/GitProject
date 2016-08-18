@@ -9,7 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simplest_ffmpeg_player2_su"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrivatePlay", "PrivatePlay\PrivatePlay.vcxproj", "{EBAA0B0F-8DB5-49D5-B489-440D5093596D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlayTest", "PlayTest\simplest_ffmpeg_player1.vcxproj", "{82150238-5705-4F8A-8B98-E12E88447C24}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlayTest", "PlayTest\PlayTest.vcxproj", "{82150238-5705-4F8A-8B98-E12E88447C24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

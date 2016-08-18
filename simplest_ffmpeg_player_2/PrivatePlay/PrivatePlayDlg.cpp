@@ -163,7 +163,6 @@ void CPrivatePlayDlg::OnBnClickedBtPlay()
     // TODO:  在此添加控件通知处理程序代码
     decoder_.init("src01_480x272_22.h265", CPrivatePlayDlg::output, CPrivatePlayDlg::error_out);
     decoder_.run();
-
 }
 int CPrivatePlayDlg::output(const uint8_t* const* data, int w, int h, const int* linesize)
 {
