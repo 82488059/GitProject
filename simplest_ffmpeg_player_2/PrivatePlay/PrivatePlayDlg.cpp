@@ -166,6 +166,8 @@ void CPrivatePlayDlg::OnBnClickedBtPlay()
 }
 int CPrivatePlayDlg::output(const uint8_t* const* data, int w, int h, const int* linesize)
 {
+
+
 #if 0
     static bool run = false;
     static SDL_Window *screen = NULL;
@@ -207,6 +209,7 @@ int CPrivatePlayDlg::output(const uint8_t* const* data, int w, int h, const int*
     //Delay 40ms
     SDL_Delay(40);
 #else
+
 
 
 #endif
