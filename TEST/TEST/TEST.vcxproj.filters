@@ -33,7 +33,10 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\tool.h">
+    <ClInclude Include="..\..\include\mfc\process.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\mfc\screen.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

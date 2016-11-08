@@ -67,7 +67,6 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <d3d9.h>
-
 //Flexible Vertex Format, FVF
 typedef struct
 {

@@ -31,4 +31,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
     afx_msg void OnBnClickedBtGo();
+    afx_msg void OnBnClickedBtGo2();
+    afx_msg void OnBnClickedBtGo3();
+    afx_msg void OnBnClickedBtGo4();
+    afx_msg void OnBnClickedBtGo5();
+    afx_msg void OnBnClickedBtGo6();
 };
