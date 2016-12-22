@@ -29,6 +29,10 @@ public:
     {
         return _tstoi(str);
     }
+    operator unsigned short()
+    {
+        return _tstoi(str);
+    }
 private:
     const TCHAR * str;
 };
