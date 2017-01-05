@@ -396,7 +396,7 @@ void CTESTDlg::OnBnClickedBtGo5()
     HWND oldHwnd = NULL;
     for (int i = 0; i < max; ++i)
     {
-        oldHwnd = ::FindWindowEx(NULL, oldHwnd, NULL, _T("QQ"));
+        oldHwnd = ::FindWindowEx(NULL, oldHwnd, NULL, _T("Rubik Cube"));
         if (NULL == oldHwnd)
         {
             break;
@@ -416,16 +416,19 @@ void CTESTDlg::OnBnClickedBtGo5()
 //         CPoint pt;
 //         GetCursorPos(&pt);//获取鼠标在屏幕的当前位置
 //         SetCursorPos(rc.left + 184, rc.top + 271);//移动到某点坐标
-        SetCursorPos(rc.left + 196, rc.top + 306);//移动到某点坐标
+        SetCursorPos(rc.left + 534, rc.top + 257);//移动到某点坐标
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, GetMessageExtraInfo());//点下左键
+        Sleep(100);
+        SetCursorPos(rc.left + 400, rc.top + 257);//移动到某点坐标
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, GetMessageExtraInfo());//松开左键
 
-        keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), 0, GetMessageExtraInfo());
-        keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
+//         keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), 0, GetMessageExtraInfo());
+//         keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
         /*
         keybd_event(keyvalue, 0, 0, 0);
         keybd_event(keyvalue, 0, KEYEVENTF_KEYUP, 0);
         */
+#if 0
         INPUT input[2];
         memset(input, 0, sizeof(input));
         //按下 向下方向键
@@ -437,6 +440,7 @@ void CTESTDlg::OnBnClickedBtGo5()
         input[1].ki.dwFlags = KEYEVENTF_KEYUP;
         //该函数合成键盘事件和鼠标事件，用来模拟鼠标或者键盘操作。事件将被插入在鼠标或者键盘处理队列里面
         SendInput(2, input, sizeof(INPUT));
+#endif
     }
 //     mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);//点下左键
 //     mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);//松开左键
