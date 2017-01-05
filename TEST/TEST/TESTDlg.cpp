@@ -417,9 +417,10 @@ void CTESTDlg::OnBnClickedBtGo5()
 //         GetCursorPos(&pt);//获取鼠标在屏幕的当前位置
 //         SetCursorPos(rc.left + 184, rc.top + 271);//移动到某点坐标
         SetCursorPos(rc.left + 196, rc.top + 306);//移动到某点坐标
-        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);//点下左键
-        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);//松开左键
+        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, GetMessageExtraInfo());//点下左键
+        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, GetMessageExtraInfo());//松开左键
 
+        keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), 0, GetMessageExtraInfo());
         /*
         keybd_event(keyvalue, 0, 0, 0);
         keybd_event(keyvalue, 0, KEYEVENTF_KEYUP, 0);
