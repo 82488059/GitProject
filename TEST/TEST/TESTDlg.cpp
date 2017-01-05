@@ -421,6 +421,7 @@ void CTESTDlg::OnBnClickedBtGo5()
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, GetMessageExtraInfo());//松开左键
 
         keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), 0, GetMessageExtraInfo());
+        keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
         /*
         keybd_event(keyvalue, 0, 0, 0);
         keybd_event(keyvalue, 0, KEYEVENTF_KEYUP, 0);
@@ -428,11 +429,11 @@ void CTESTDlg::OnBnClickedBtGo5()
         INPUT input[2];
         memset(input, 0, sizeof(input));
         //按下 向下方向键
+        input[0].type = INPUT_KEYBOARD;  
         input[0].ki.wVk = VK_NUMPAD0;
-        input[0].type = INPUT_KEYBOARD;
         //松开 向下方向键
-        input[1].ki.wVk = VK_NUMPAD0;
         input[1].type = INPUT_KEYBOARD;
+        input[1].ki.wVk = VK_NUMPAD0;
         input[1].ki.dwFlags = KEYEVENTF_KEYUP;
         //该函数合成键盘事件和鼠标事件，用来模拟鼠标或者键盘操作。事件将被插入在鼠标或者键盘处理队列里面
         SendInput(2, input, sizeof(INPUT));
