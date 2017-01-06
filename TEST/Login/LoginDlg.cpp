@@ -7,7 +7,7 @@
 #include "LoginDlg.h"
 #include "afxdialogex.h"
 #include "include/opencv2/opencv.hpp"
-
+#include "likeUse.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -155,6 +155,7 @@ HCURSOR CLoginDlg::OnQueryDragIcon()
 
 void CLoginDlg::OnBnClickedButton1()
 {
+#if 0
     IplImage * TempPIC;//模板图像
     IplImage * SerchPIC;//要搜索的图像
     IplImage * RPIC;//算法返回的图像
@@ -194,6 +195,20 @@ void CLoginDlg::OnBnClickedButton1()
     cvReleaseImage(&TempPIC);
     cvReleaseImage(&SerchPIC);
     cvReleaseImage(&RPIC);
+#else
+    IplImage * TempPIC;//模板图像
+    IplImage * SerchPIC;//要搜索的图像
+    IplImage * RPIC;//算法返回的图像
+    TempPIC = cvLoadImage("template\\1.png");
+    SerchPIC = cvLoadImage("2.png");
+    CvPoint pt{};
+    double maxval = 0;
+    likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
+    cvReleaseImage(&TempPIC);
+    cvReleaseImage(&SerchPIC); 
+
+#endif
+
 }
 
 
