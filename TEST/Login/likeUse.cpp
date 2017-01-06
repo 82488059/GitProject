@@ -11,7 +11,7 @@ likeUse::~likeUse()
 {
 }
 
-bool likeUse::FindTemplateXY(IplImage* src, IplImage* TempPIC, CvPoint& cpt, double& maxval)
+bool likeUse::FindTemplateXY(IplImage*& src, IplImage*& TempPIC, CvPoint& cpt, double& maxval)
 {
 //     IplImage * templ;//模板图像
 //     IplImage * src;//要搜索的图像
@@ -38,7 +38,7 @@ bool likeUse::FindTemplateXY(IplImage* src, IplImage* TempPIC, CvPoint& cpt, dou
     cpt = cvPoint(rect.x + (rect.width - 1) / 2, rect.y + (rect.height - 1) / 2);
 
     //cvLine(src, cpt, cpt, CV_RGB(0, 0, 255), 3, 8, 0);
-    TRACE("识别中心:x=%d,y=%d\r\n", cpt.x, cpt.y);
+    TRACE("\r\n识别中心:x=%d,y=%d\r\n", cpt.x, cpt.y);
     TRACE("相似度:%.4f\r\n", maxval);
     DWORD dwEndTime = ::GetTickCount();
     DWORD dwSpaceTime = dwEndTime - dwBeginTime;
@@ -136,4 +136,113 @@ IplImage* likeUse::StandardFormat(IplImage* imagein)
     IplImage* TempPIC = cvCreateImage(cvSize(imagein->width, imagein->height), IPL_DEPTH_8U, 3);
     cvCvtColor(imagein, TempPIC, CV_RGBA2RGB);
     return TempPIC;
+}
+
+bool likeUse::FindAndClick(IplImage* temp)
+{
+	if (!temp)
+	{
+		return false;
+	}
+	
+	IplImage * TempPIC = NULL;//模板图像
+	IplImage * SerchPIC = NULL;//算法返回的图像
+	bool flag = false;
+	IplImage* screen = likeUse::Screen();
+	if (!screen)
+	{
+		return false;
+	}
+	SerchPIC = likeUse::StandardFormat(screen);
+	CvPoint pt{};
+	double maxval = 0;
+	//IplImage* temp = cvLoadImage("template\\login\\x.bmp" + name_);
+	TempPIC = likeUse::StandardFormat(temp);
+	likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
+	if (maxval > 0.95)
+	{
+		SetCursorPos(pt.x, pt.y);//移动到某点坐标
+		Sleep(500);
+		mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, 0);//点下左键
+		Sleep(20);
+		mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, 0);//松开左键
+		// 		keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), 0, GetMessageExtraInfo());
+		// 		keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
+		flag = true;
+	}
+
+	//     cvReleaseImage(&temp);
+	cvReleaseImage(&screen);
+	cvReleaseImage(&TempPIC);
+	cvReleaseImage(&SerchPIC);
+	return flag;
+
+}
+
+void likeUse::LClick()
+{
+	mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, 0);//点下左键
+	Sleep(20);
+	mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, 0);//松开左键
+}
+
+bool likeUse::LoadConf(int& max, int & u, int &p)
+{
+	max = GetPrivateProfileIntA("CONF", "MAX", 0, "template\\conf.ini");
+
+	if (0 == max)
+	{
+		return false;
+	}
+	char BUF1[MAX_PATH];
+	char BUF2[MAX_PATH];
+	for (int i = 0; i < max; ++i)
+	{
+		sprintf_s(BUF2, "%d", i+1);
+		DWORD l = GetPrivateProfileStringA("CONF", BUF2, 0, BUF1, MAX_PATH, "template\\conf.ini");
+		if ('U' == BUF1[0])
+		{
+			u = i;
+		}
+		else if ('P' == BUF1[0])
+		{
+			p = i;
+		}
+	}
+	
+	return p!=u && 0!=p && 0!= u;
+}
+
+bool likeUse::LoadNAP(std::list<NAP>& naplist)
+{
+	int max = GetPrivateProfileIntA("CONF", "MAX", 0, "template\\conf.ini");
+
+	if (0 == max)
+	{
+		return false;
+	}
+	char BUF1[MAX_PATH];
+	char BUF2[MAX_PATH];
+	for (int i = 0; i < max; ++i)
+	{
+		sprintf_s(BUF2, "%d", i + 1);
+		DWORD l = GetPrivateProfileStringA("USER_LIST", BUF2, 0, BUF1, MAX_PATH, "template\\conf.ini");
+		if (0 == BUF1[0])
+		{
+			max = i;
+			return 0 != max;
+		}
+		
+		std::string tmp(BUF1);
+		int n = tmp.find(',');
+		NAP nap;
+		nap.n = tmp.substr(0, n);
+		nap.p = tmp.substr(n+1, tmp.size()-1);
+		naplist.push_back(nap);
+	}
+
+	return true;
+
+
+
 }

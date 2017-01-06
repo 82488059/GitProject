@@ -8,6 +8,9 @@
 #include "afxdialogex.h"
 #include "include/opencv2/opencv.hpp"
 #include "likeUse.h"
+#include "plug.h"
+#include <list>
+#include <vector>
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -50,6 +53,7 @@ END_MESSAGE_MAP()
 
 CLoginDlg::CLoginDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CLoginDlg::IDD, pParent)
+	, name_(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -57,6 +61,7 @@ CLoginDlg::CLoginDlg(CWnd* pParent /*=NULL*/)
 void CLoginDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, name_);
 }
 
 BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
@@ -66,6 +71,8 @@ BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BUTTON1, &CLoginDlg::OnBnClickedButton1)
     ON_BN_CLICKED(IDC_BUTTON2, &CLoginDlg::OnBnClickedButton2)
     ON_BN_CLICKED(IDC_BUTTON3, &CLoginDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON4, &CLoginDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON5, &CLoginDlg::OnBnClickedButton5)
 END_MESSAGE_MAP()
 
 
@@ -101,6 +108,14 @@ BOOL CLoginDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO:  在此添加额外的初始化代码
+	if (!plug::LoadNAP())
+	{
+		MessageBox(_T("用户列表配置错误！"));
+	}
+	if (!plug::LoadSOP())
+	{
+		MessageBox(_T("图片列表配置错误！"));
+	}
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -296,6 +311,8 @@ void CLoginDlg::OnBnClickedButton2()
 void CLoginDlg::OnBnClickedButton3()
 {
     // TODO:  在此添加控件通知处理程序代码
+	UpdateData(TRUE);
+
     IplImage * TempPIC = NULL;//模板图像
     IplImage * SerchPIC = NULL;//算法返回的图像
 
@@ -307,15 +324,142 @@ void CLoginDlg::OnBnClickedButton3()
     SerchPIC = likeUse::StandardFormat(screen);
     CvPoint pt{};
     double maxval = 0;
-    IplImage* temp = cvLoadImage("template\\1.jpg");
+    IplImage* temp = cvLoadImage("template\\login\\x.bmp");
     TempPIC = likeUse::StandardFormat(temp);
     likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
-
-    cvReleaseImage(&temp);
+	if (maxval > 0.95)
+	{
+		SetCursorPos(pt.x, pt.y);//移动到某点坐标
+		Sleep(100);
+		mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, 0);//点下左键
+		Sleep(20);
+		mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, 0);//松开左键
+// 		keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), 0, GetMessageExtraInfo());
+// 		keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
+	}
+	
+//     cvReleaseImage(&temp);
     cvReleaseImage(&screen);
     cvReleaseImage(&TempPIC);
     cvReleaseImage(&SerchPIC);
 
 
     return;
+}
+
+
+void CLoginDlg::OnBnClickedButton4()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	// 加载配置
+	int max = 0, u = 0, p = 0;
+	if (!likeUse::LoadConf(max, u, p))
+	{
+		return;
+	}
+	// 加载账号
+	std::list<likeUse::NAP> naplist;
+	if (!likeUse::LoadNAP(naplist))
+	{
+		return;
+	}
+
+	char name[260];
+	// 加载模版
+	std::list<IplImage*> imagelist;
+
+	for (int i = 0; i < max; ++i)
+	{
+		sprintf_s(name, "template\\%d.bmp", i);
+		IplImage* temp = cvLoadImage(name);
+		if (!temp)
+		{
+			break;
+		}
+		imagelist.push_back(temp);
+	}
+	for (auto it : naplist)
+	{
+		bool flag = false;
+		bool find = false;
+		do 
+		{
+			// 查找 
+			int i = 0;
+			for (auto it = imagelist.begin(); it != imagelist.end();/* ++it*/)
+			{
+				if (likeUse::FindAndClick(*it))
+				{
+					TRACE(("操作成功\r\n"));
+					find = true;
+					Sleep(200);
+					it++;
+				}
+				else
+				{
+					TRACE("失败！\r\n");
+					Sleep(500);
+					if (!find)
+					{
+						++it;
+					}
+					likeUse::LClick();
+					continue;
+				}
+				if (i == u)
+				{
+					// 输入账号
+					flag = true;
+				}
+				else if (i == p)
+				{
+					// 输入密码
+					flag = true;
+				}
+				++i;
+			}
+			
+		} while (!flag);
+		
+	}
+
+
+
+}
+
+
+void CLoginDlg::OnBnClickedButton5()
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+	// 加载账号
+	if (!plug::LoadNAP())
+	{
+		return;
+	}
+	if (!plug::LoadSOP())
+	{
+		return;
+	}
+	int type = 0, index = 0;
+	double maxval = 0;
+
+	plug::Detection(type, index, maxval);
+
+	if (!plug::GotoLogin(type, index))
+	{
+		return;
+	}
+	if (!plug::GotoInput(type, index))
+	{
+		return;
+	}
+
+
+	if (plug::AutoRun())
+	{
+		return;
+	}
+
+	return;
 }

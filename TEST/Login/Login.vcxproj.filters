@@ -36,6 +36,12 @@
     <ClInclude Include="likeUse.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="enterkey.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="plug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Login.cpp">
@@ -48,6 +54,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="likeUse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="enterkey.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="plug.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
