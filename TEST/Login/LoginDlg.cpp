@@ -6,7 +6,7 @@
 #include "Login.h"
 #include "LoginDlg.h"
 #include "afxdialogex.h"
-#include "opencv2/opencv.hpp"
+#include "include/opencv2/opencv.hpp"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
