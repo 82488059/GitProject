@@ -13,6 +13,7 @@ public:
 
     static IplImage* Screen();
 
+    static IplImage* StandardFormat(IplImage* imagein);
 
 };
 

@@ -304,19 +304,16 @@ void CLoginDlg::OnBnClickedButton3()
     {
         return;
     }
-    if (!SerchPIC)
-        SerchPIC = cvCreateImage(cvSize(screen->width, screen->height), IPL_DEPTH_8U, 3);
-    cvCvtColor(screen, SerchPIC, CV_RGBA2RGB);
+    SerchPIC = likeUse::StandardFormat(screen);
+    cvReleaseImage(&screen);
 
-    IplImage* temp = cvLoadImage("template\\1.bmp");
-    if (!TempPIC)
-        TempPIC = cvCreateImage(cvSize(temp->width, temp->height), IPL_DEPTH_8U, 3);
-    cvCvtColor(temp, TempPIC, CV_RGBA2RGB);
-
+    
     CvPoint pt{};
     double maxval = 0;
-    likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
+    IplImage* temp = cvLoadImage("template\\1.bmp");
+    TempPIC = likeUse::StandardFormat(temp);
 
+    likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
 
     cvReleaseImage(&TempPIC);
     cvReleaseImage(&SerchPIC);

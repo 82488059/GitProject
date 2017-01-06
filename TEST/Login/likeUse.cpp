@@ -130,3 +130,10 @@ IplImage* likeUse::Screen()
 #endif
     
 }
+
+IplImage* likeUse::StandardFormat(IplImage* imagein)
+{
+    IplImage* TempPIC = cvCreateImage(cvSize(imagein->width, imagein->height), IPL_DEPTH_8U, 3);
+    cvCvtColor(imagein, TempPIC, CV_RGBA2RGB);
+    return TempPIC;
+}
