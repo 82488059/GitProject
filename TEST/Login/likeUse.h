@@ -11,5 +11,8 @@ public:
 public:
     static bool FindTemplateXY(IplImage* src, IplImage* templ, CvPoint& pt, double& maxval);
 
+    static IplImage* Screen();
+
+
 };
 

@@ -56,3 +56,77 @@ bool likeUse::FindTemplateXY(IplImage* src, IplImage* templ, CvPoint& cpt, doubl
     cvReleaseImage(&RPIC);
     return true;
 }
+
+IplImage* likeUse::Screen()
+{
+    //截屏
+    int image_width;
+    int image_height;
+    int image_depth;
+    int image_nchannels;
+    IplImage*  screemImage = NULL;
+
+    int right = GetSystemMetrics(SM_CXSCREEN), left = 0, top = 0, bottom = GetSystemMetrics(SM_CYSCREEN);//定义截屏范围 此处设为全屏
+    int nWidth, nHeight;
+    HDC      hSrcDC = NULL, hMemDC = NULL;
+    HBITMAP hBitmap = NULL, hOldBitmap = NULL;
+
+    hSrcDC = CreateDC(L"DISPLAY", NULL, NULL, NULL);
+    hMemDC = CreateCompatibleDC(hSrcDC);
+    nWidth = right - left;
+    nHeight = bottom - top;
+
+    hBitmap = CreateCompatibleBitmap(hSrcDC, nWidth, nHeight);
+    hOldBitmap = (HBITMAP)SelectObject(hMemDC, hBitmap);
+
+    BitBlt(hMemDC, 0, 0, nWidth, nHeight, hSrcDC, left, top, SRCCOPY);
+    hBitmap = (HBITMAP)SelectObject(hMemDC, hOldBitmap);
+
+    BITMAP bmp;
+    int nChannels, depth;
+    BYTE *pBuffer;
+    GetObject(hBitmap, sizeof(BITMAP), &bmp);
+    image_nchannels = bmp.bmBitsPixel == 1 ? 1 : bmp.bmBitsPixel / 8;
+    image_depth = bmp.bmBitsPixel == 1 ? IPL_DEPTH_1U : IPL_DEPTH_8U;
+    image_width = bmp.bmWidth;
+    image_height = bmp.bmHeight;
+
+    screemImage = cvCreateImage(cvSize(image_width, image_height), image_depth, image_nchannels);
+    if (!screemImage)
+    {
+        return screemImage;
+    }
+    pBuffer = new BYTE[image_width*image_height*image_nchannels];
+    GetBitmapBits(hBitmap, image_height*image_width*image_nchannels, pBuffer);
+    memcpy(screemImage->imageData, pBuffer, image_height*image_width*image_nchannels);
+    delete pBuffer;
+
+    SelectObject(hMemDC, hOldBitmap);
+    DeleteObject(hOldBitmap);
+    DeleteDC(hMemDC);
+    SelectObject(hSrcDC, hBitmap);
+    DeleteDC(hMemDC);
+    DeleteObject(hBitmap);
+
+
+    return screemImage;
+#if 0
+    // 转 IplImage
+    IplImage* screenRGB = 0;
+    IplImage* screen_resize = 0;
+    //CopyScreenToBitmap(); //得到的图片为RGBA格式,即4通道。
+    if (!screen_resize)
+        screen_resize = cvCreateImage(cvSize(image_width, image_height), image_depth, image_nchannels);
+    cvResize(screemImage, screen_resize, CV_INTER_LINEAR);
+    if (!screenRGB)
+        screenRGB = cvCreateImage(cvSize(image_width, image_height), IPL_DEPTH_8U, 3);
+    cvCvtColor(screen_resize, screenRGB, CV_RGBA2RGB);
+    //cvShowImage("s_laplace", screenRGB);
+    //cvSaveImage("rgba.jpg", screen_resize);
+    //cvWaitKey(10);
+
+    //cvDestroyAllWindows();
+    return screen_resize;
+#endif
+    
+}

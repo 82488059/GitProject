@@ -65,6 +65,7 @@ BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
     ON_BN_CLICKED(IDC_BUTTON1, &CLoginDlg::OnBnClickedButton1)
     ON_BN_CLICKED(IDC_BUTTON2, &CLoginDlg::OnBnClickedButton2)
+    ON_BN_CLICKED(IDC_BUTTON3, &CLoginDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -214,6 +215,7 @@ void CLoginDlg::OnBnClickedButton1()
 
 void CLoginDlg::OnBnClickedButton2()
 {
+#if 0
     //截屏图片参数
     int image_width;
     int image_height;
@@ -277,5 +279,47 @@ void CLoginDlg::OnBnClickedButton2()
     //cvWaitKey(10);
     
     //cvDestroyAllWindows();
+    return;
+#else
+    IplImage* screen= likeUse::Screen();
+    if (!screen)
+    {
+        return;
+    }
+    cvSaveImage("rgba.jpg", screen);
+    cvReleaseImage(&screen);
+    return;
+#endif
+}
+
+
+void CLoginDlg::OnBnClickedButton3()
+{
+    // TODO:  在此添加控件通知处理程序代码
+    IplImage * TempPIC = NULL;//模板图像
+    IplImage * SerchPIC = NULL;//算法返回的图像
+
+    IplImage* screen = likeUse::Screen();
+    if (!screen)
+    {
+        return;
+    }
+    if (!SerchPIC)
+        SerchPIC = cvCreateImage(cvSize(screen->width, screen->height), IPL_DEPTH_8U, 3);
+    cvCvtColor(screen, SerchPIC, CV_RGBA2RGB);
+
+    IplImage* temp = cvLoadImage("template\\1.bmp");
+    if (!TempPIC)
+        TempPIC = cvCreateImage(cvSize(temp->width, temp->height), IPL_DEPTH_8U, 3);
+    cvCvtColor(temp, TempPIC, CV_RGBA2RGB);
+
+    CvPoint pt{};
+    double maxval = 0;
+    likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
+
+
+    cvReleaseImage(&TempPIC);
+    cvReleaseImage(&SerchPIC);
+
     return;
 }
