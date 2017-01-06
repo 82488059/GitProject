@@ -396,7 +396,7 @@ void CTESTDlg::OnBnClickedBtGo5()
     HWND oldHwnd = NULL;
     for (int i = 0; i < max; ++i)
     {
-        oldHwnd = ::FindWindowEx(NULL, oldHwnd, NULL, _T("Rubik Cube"));
+        oldHwnd = ::FindWindowEx(NULL, oldHwnd, _T("ConsoleWindowClass"), NULL);
         if (NULL == oldHwnd)
         {
             break;
@@ -422,8 +422,8 @@ void CTESTDlg::OnBnClickedBtGo5()
         SetCursorPos(rc.left + 400, rc.top + 257);//移动到某点坐标
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, GetMessageExtraInfo());//松开左键
 
-//         keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), 0, GetMessageExtraInfo());
-//         keybd_event(VK_NUMLOCK, MapVirtualKey(VK_NUMLOCK, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
+        keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), 0, GetMessageExtraInfo());
+        keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
         /*
         keybd_event(keyvalue, 0, 0, 0);
         keybd_event(keyvalue, 0, KEYEVENTF_KEYUP, 0);
