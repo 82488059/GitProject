@@ -403,6 +403,10 @@ void CTESTDlg::OnBnClickedBtGo5()
         }
         hwnd[i] = oldHwnd;
     }
+    if (NULL == hwnd[0])
+    {
+        return;
+    }
     WORD inputar[8] = { VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8 };
     for (int i = 0; i < max && NULL != hwnd[i]; ++i)
     {
@@ -412,15 +416,14 @@ void CTESTDlg::OnBnClickedBtGo5()
         Sleep(100);
         ::SetForegroundWindow(hwnd[i]);
         ::SetFocus(hwnd[i]);
-
 //         CPoint pt;
 //         GetCursorPos(&pt);//获取鼠标在屏幕的当前位置
 //         SetCursorPos(rc.left + 184, rc.top + 271);//移动到某点坐标
         SetCursorPos(rc.left + 534, rc.top + 257);//移动到某点坐标
-        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, GetMessageExtraInfo());//点下左键
+        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, 0);//点下左键
         Sleep(100);
         SetCursorPos(rc.left + 400, rc.top + 257);//移动到某点坐标
-        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, GetMessageExtraInfo());//松开左键
+        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, 0);//松开左键
 
         keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), 0, GetMessageExtraInfo());
         keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
