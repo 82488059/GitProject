@@ -187,11 +187,11 @@ void CLoginDlg::OnBnClickedButton1()
     TRACE("识别时间:%d\r\n", dwSpaceTime);
     //cvNamedWindow("RPIC");
     //cvShowImage("RPIC",RPIC);
-    cvNamedWindow("SerchPIC");
-    cvShowImage("SerchPIC", SerchPIC);
+//     cvNamedWindow("SerchPIC");
+//     cvShowImage("SerchPIC", SerchPIC);
 
-    cvWaitKey(0);
-    cvDestroyWindow("SerchPIC");
+//     cvWaitKey(0);
+//     cvDestroyWindow("SerchPIC");
     //cvDestroyWindow("RPIC");
     cvReleaseImage(&TempPIC);
     cvReleaseImage(&SerchPIC);
@@ -305,18 +305,17 @@ void CLoginDlg::OnBnClickedButton3()
         return;
     }
     SerchPIC = likeUse::StandardFormat(screen);
-    cvReleaseImage(&screen);
-
-    
     CvPoint pt{};
     double maxval = 0;
-    IplImage* temp = cvLoadImage("template\\1.bmp");
+    IplImage* temp = cvLoadImage("template\\1.jpg");
     TempPIC = likeUse::StandardFormat(temp);
-
     likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
 
+    cvReleaseImage(&temp);
+    cvReleaseImage(&screen);
     cvReleaseImage(&TempPIC);
     cvReleaseImage(&SerchPIC);
+
 
     return;
 }
