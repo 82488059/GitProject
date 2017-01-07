@@ -4,7 +4,8 @@
 
 #pragma once
 
-
+#include "Conf.h"
+#include "Seek.h"
 // CLoginDlg ¶Ô»°¿ò
 class CLoginDlg : public CDialogEx
 {
@@ -36,4 +37,8 @@ public:
 	CString name_;
 	afx_msg void OnBnClickedButton4();
 	afx_msg void OnBnClickedButton5();
+	afx_msg void OnBnClickedButton6();
+
+	Conf conf_;
+	Seek seek_;
 };

@@ -7,6 +7,7 @@
 #include "LoginDlg.h"
 #include "afxdialogex.h"
 #include "include/opencv2/opencv.hpp"
+#include "opencv2/opencv.hpp"
 #include "likeUse.h"
 #include "plug.h"
 #include <list>
@@ -73,6 +74,7 @@ BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BUTTON3, &CLoginDlg::OnBnClickedButton3)
 	ON_BN_CLICKED(IDC_BUTTON4, &CLoginDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CLoginDlg::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON6, &CLoginDlg::OnBnClickedButton6)
 END_MESSAGE_MAP()
 
 
@@ -433,17 +435,8 @@ void CLoginDlg::OnBnClickedButton5()
 	// TODO:  在此添加控件通知处理程序代码
 
 	// 加载账号
-	if (!plug::LoadNAP())
-	{
-		return;
-	}
-	if (!plug::LoadSOP())
-	{
-		return;
-	}
 	int type = 0, index = 0;
 	double maxval = 0;
-
 	plug::Detection(type, index, maxval);
 
 	if (!plug::GotoLogin(type, index))
@@ -462,4 +455,19 @@ void CLoginDlg::OnBnClickedButton5()
 	}
 
 	return;
+}
+
+
+void CLoginDlg::OnBnClickedButton6()
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+	if (!seek_.Init())
+	{
+		return;
+	}
+
+	seek_.Run();
+
+
 }

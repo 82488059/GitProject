@@ -33,13 +33,40 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="likeUse.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="enterkey.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="plug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fsm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OneSpace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Feature.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Conf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="likeUse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Seek.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="action.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="click.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,13 +80,40 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="likeUse.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="enterkey.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="plug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fsm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OneSpace.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageTool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Conf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="likeUse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Seek.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="action.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="click.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
