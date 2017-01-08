@@ -1,5 +1,6 @@
 #pragma once
 #include "ImageTool.h"
+#include "mousetool.h"
 
 class Click{
 public:
@@ -9,8 +10,9 @@ public:
 		CvPoint pt{};
 		double maxval = 0;
 		ImageTool::FindTemplateXY(screen, click_, pt, maxval);
-		if (maxval > 0.98)
+		if (maxval > 0.95)
 		{
+			mousetool::LClieck(pt);
 			return true;
 		}
 		return false;

@@ -39,9 +39,6 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="enterkey.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="plug.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -84,6 +81,15 @@
     <ClInclude Include="test_list.h">
       <Filter>test</Filter>
     </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="enterkey.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="mousetool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Login.cpp">
@@ -93,9 +99,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="enterkey.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="plug.cpp">
@@ -145,6 +148,15 @@
     </ClCompile>
     <ClCompile Include="test_list.cpp">
       <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="enterkey.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="mousetool.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

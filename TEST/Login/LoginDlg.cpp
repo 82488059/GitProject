@@ -486,5 +486,9 @@ void CLoginDlg::OnBnClickedButton7()
 	{
 		return;
 	}
+	if (!test.Run())
+	{
+		return;
+	}
 
 }

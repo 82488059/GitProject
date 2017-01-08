@@ -116,6 +116,7 @@
     <ClInclude Include="likeUse.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="LoginDlg.h" />
+    <ClInclude Include="mousetool.h" />
     <ClInclude Include="OneSpace.h" />
     <ClInclude Include="plug.h" />
     <ClInclude Include="Resource.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="test_list.h" />
     <ClInclude Include="tinystr.h" />
     <ClInclude Include="tinyxml.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="action.cpp" />
@@ -138,6 +140,7 @@
     <ClCompile Include="likeUse.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginDlg.cpp" />
+    <ClCompile Include="mousetool.cpp" />
     <ClCompile Include="OneSpace.cpp" />
     <ClCompile Include="plug.cpp" />
     <ClCompile Include="Seek.cpp" />
@@ -151,6 +154,7 @@
     <ClCompile Include="tinyxml.cpp" />
     <ClCompile Include="tinyxmlerror.cpp" />
     <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Login.rc" />

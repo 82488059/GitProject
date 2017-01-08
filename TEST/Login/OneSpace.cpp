@@ -2,10 +2,10 @@
 #include "OneSpace.h"
 
 
-OneSpace::OneSpace(int type, int step)
+OneSpace::OneSpace(int step)
+	:step(step)
 {
-	index_.step = step;
-	index_.type = type;
+	step = step;
 }
 
 

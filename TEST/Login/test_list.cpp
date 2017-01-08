@@ -12,8 +12,6 @@
 #include "test_list.h"
 
 test_list::test_list()
-	:o(0,0)
-	, list_()
 {
 }
 
@@ -22,9 +20,17 @@ test_list::~test_list()
 {
 }
 
-bool test_list::Init(int i )
+bool test_list::Init()
 {
-	list_;
+	if (init_)
+	{
+		return init_;
+	}
+	const char testdir[] = "conf\\test";
+	init_ = list_.InitWith("conf\\test", "conf.xml");
+	return init_;
+
+#if 0
 	CString name = "Conf\\test\\conf.xml";
 	TiXmlDocument doc("Conf\\test\\conf.xml");
 	if (!doc.LoadFile())
@@ -58,7 +64,7 @@ bool test_list::Init(int i )
 	}
 	max_ = atoi(p);
 	char BUF[MAX_PATH];
-	const char testdir[] = "conf\\test";
+	
 
 	for (int i = 0; i < max_; ++i)
 	{
@@ -69,7 +75,8 @@ bool test_list::Init(int i )
 		{
 			return false;
 		}
-		OneSpace os(0,i);
+		OneSpacePtr osp = std::make_shared<OneSpace>(0, i);
+		OneSpace & os = *osp;
 	
 
 		p = itemElement->Attribute("feat");
@@ -118,7 +125,56 @@ bool test_list::Init(int i )
 			return false;
 		}
 		os.SetClickImage(image);
-		list_.PushSpace(os);
+		list_.PushSpace(osp);
 	}
 	return true;
+#endif
 }
+
+bool test_list::Run()
+{
+	if (!init_)
+	{
+		return false;
+	}
+	bool flag = false;
+	int n = 0;
+	for (int i = 0; i < 5; ++i)
+	{
+		User user;
+		user.name = "";
+		user.pwd == "";
+		int times = 0;
+		if (RunWithUser(user))
+		{
+			n++;
+			continue;
+		}
+		else
+		{
+			break;
+		}
+	}
+	return n;
+}
+
+bool test_list::RunWithUser(const User& user)
+{
+	int times = 0;
+	do
+	{
+		if (list_.RunWithUser(user))
+		{
+			return true;
+		}
+		times++;
+		if (times > 30)
+		{
+			break;
+		}
+		Sleep(1000);
+	} while (true);
+
+	return false;
+}
+

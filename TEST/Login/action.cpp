@@ -71,7 +71,9 @@ bool action::InitOneSpace(int index, int step)
 	std::string file = thisdir+"\\conf.ini";
 	int feat = 0;
 	int feat_max = GetPrivateProfileIntA("CONF", "feat", 0, file.c_str());
-	OneSpace os(index, step);
+	OneSpacePtr osp = std::make_shared<OneSpace>(step);
+	
+	OneSpace& os = *osp;
 	for (int i = 0; i < feat_max; ++i)
 	{
 		sprintf_s(BUF, "%s\\%d.bmp", thisdir.c_str(), i);
@@ -92,6 +94,6 @@ bool action::InitOneSpace(int index, int step)
 			os.SetClickImage(image1);
 		}
 	}
-	actionlist_[index].PushSpace(os);
+	actionlist_[index].PushSpace(osp);
 	return feat == feat_max;
 }
