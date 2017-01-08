@@ -12,6 +12,9 @@
 #include "plug.h"
 #include <list>
 #include <vector>
+#include "tinyxml.h"
+#include "test_list.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -75,6 +78,7 @@ BEGIN_MESSAGE_MAP(CLoginDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON4, &CLoginDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON5, &CLoginDlg::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CLoginDlg::OnBnClickedButton6)
+	ON_BN_CLICKED(IDC_BUTTON7, &CLoginDlg::OnBnClickedButton7)
 END_MESSAGE_MAP()
 
 
@@ -469,5 +473,18 @@ void CLoginDlg::OnBnClickedButton6()
 
 	seek_.Run();
 
+
+}
+
+
+void CLoginDlg::OnBnClickedButton7()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	test_list test;
+	
+	if (!test.Init())
+	{
+		return;
+	}
 
 }

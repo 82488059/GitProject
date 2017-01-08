@@ -2,11 +2,11 @@
 #include "SpaceList.h"
 
 
-SpaceList::SpaceList()
+CSpaceList::CSpaceList()
 {
 }
 
 
-SpaceList::~SpaceList()
+CSpaceList::~CSpaceList()
 {
 }

@@ -27,7 +27,7 @@ protected:
 
 	std::string name_;
 	bool init_;
-	std::vector<SpaceList> actionlist_;
+	std::vector<CSpaceList> actionlist_;
 
 };
 

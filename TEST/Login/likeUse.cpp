@@ -71,7 +71,7 @@ IplImage* likeUse::Screen()
     HDC      hSrcDC = NULL, hMemDC = NULL;
     HBITMAP hBitmap = NULL, hOldBitmap = NULL;
 
-    hSrcDC = CreateDC(L"DISPLAY", NULL, NULL, NULL);
+    hSrcDC = CreateDC("DISPLAY", NULL, NULL, NULL);
     hMemDC = CreateCompatibleDC(hSrcDC);
     nWidth = right - left;
     nHeight = bottom - top;

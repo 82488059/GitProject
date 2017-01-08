@@ -41,4 +41,5 @@ public:
 
 	Conf conf_;
 	Seek seek_;
+	afx_msg void OnBnClickedButton7();
 };

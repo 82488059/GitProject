@@ -1,12 +1,12 @@
 #pragma once
 #include "OneSpace.h"
+#include <vector>
 
-
-class SpaceList
+class CSpaceList
 {
 public:
-	SpaceList();
-	virtual ~SpaceList();
+	CSpaceList();
+	virtual ~CSpaceList();
 
 	void PushSpace(OneSpace& space)
 	{
