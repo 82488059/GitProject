@@ -50,7 +50,6 @@ bool action::InitWithName(int index)
 		return true;
 	}
 	int n = 0;
-	char BUF2[MAX_PATH];
 	for (int i = 0; i < max; ++i)
 	{
 		if (InitOneSpace(index, i))
