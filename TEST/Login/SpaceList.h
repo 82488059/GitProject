@@ -76,6 +76,7 @@ public:
 				cvReleaseImage(&screen);
 				if (sucess_pwd && sucess_name && next == spacelist_.size())
 				{
+					Sleep(1000);
 					return true;
 				}
 				else if (next == spacelist_.size())
@@ -83,7 +84,7 @@ public:
 					next = 0;
 					++time;
 				}
-
+				Sleep(500);
 			}
 			if (sucess_pwd && sucess_name)
 			{

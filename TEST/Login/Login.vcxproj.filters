@@ -45,13 +45,7 @@
     <ClInclude Include="fsm.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="OneSpace.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Feature.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageTool.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Conf.h">
@@ -66,9 +60,6 @@
     <ClInclude Include="action.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SpaceList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="click.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -81,14 +72,23 @@
     <ClInclude Include="test_list.h">
       <Filter>test</Filter>
     </ClInclude>
-    <ClInclude Include="User.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="enterkey.h">
       <Filter>test</Filter>
     </ClInclude>
+    <ClInclude Include="OneSpace.h">
+      <Filter>test</Filter>
+    </ClInclude>
     <ClInclude Include="mousetool.h">
-      <Filter>头文件</Filter>
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTool.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceList.h">
+      <Filter>test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -107,13 +107,7 @@
     <ClCompile Include="fsm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="OneSpace.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Feature.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ImageTool.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Conf.cpp">
@@ -126,9 +120,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="action.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SpaceList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="click.cpp">
@@ -149,14 +140,23 @@
     <ClCompile Include="test_list.cpp">
       <Filter>test</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="enterkey.cpp">
       <Filter>test</Filter>
     </ClCompile>
+    <ClCompile Include="OneSpace.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
     <ClCompile Include="mousetool.cpp">
-      <Filter>源文件</Filter>
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="SpaceList.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageTool.cpp">
+      <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
