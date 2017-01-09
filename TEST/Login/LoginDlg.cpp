@@ -8,7 +8,6 @@
 #include "afxdialogex.h"
 #include "include/opencv2/opencv.hpp"
 #include "opencv2/opencv.hpp"
-#include "likeUse.h"
 #include "plug.h"
 #include <list>
 #include <vector>
@@ -225,7 +224,7 @@ void CLoginDlg::OnBnClickedButton1()
     SerchPIC = cvLoadImage("2.png");
     CvPoint pt{};
     double maxval = 0;
-    likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
+    ImageTool::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
     cvReleaseImage(&TempPIC);
     cvReleaseImage(&SerchPIC); 
 
@@ -302,7 +301,7 @@ void CLoginDlg::OnBnClickedButton2()
     //cvDestroyAllWindows();
     return;
 #else
-    IplImage* screen= likeUse::Screen();
+    IplImage* screen = ImageTool::Screen();
     if (!screen)
     {
         return;
@@ -322,17 +321,17 @@ void CLoginDlg::OnBnClickedButton3()
     IplImage * TempPIC = NULL;//模板图像
     IplImage * SerchPIC = NULL;//算法返回的图像
 
-    IplImage* screen = likeUse::Screen();
+    IplImage* screen = ImageTool::Screen();
     if (!screen)
     {
         return;
     }
-    SerchPIC = likeUse::StandardFormat(screen);
+    SerchPIC = ImageTool::StandardFormat(screen);
     CvPoint pt{};
     double maxval = 0;
     IplImage* temp = cvLoadImage("template\\login\\x.bmp");
-    TempPIC = likeUse::StandardFormat(temp);
-    likeUse::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
+    TempPIC = ImageTool::StandardFormat(temp);
+    ImageTool::FindTemplateXY(SerchPIC, TempPIC, pt, maxval);
 	if (maxval > 0.95)
 	{
 		SetCursorPos(pt.x, pt.y);//移动到某点坐标
@@ -358,78 +357,6 @@ void CLoginDlg::OnBnClickedButton4()
 {
 	// TODO:  在此添加控件通知处理程序代码
 	// 加载配置
-	int max = 0, u = 0, p = 0;
-	if (!likeUse::LoadConf(max, u, p))
-	{
-		return;
-	}
-	// 加载账号
-	std::list<likeUse::NAP> naplist;
-	if (!likeUse::LoadNAP(naplist))
-	{
-		return;
-	}
-
-	char name[260];
-	// 加载模版
-	std::list<IplImage*> imagelist;
-
-	for (int i = 0; i < max; ++i)
-	{
-		sprintf_s(name, "template\\%d.bmp", i);
-		IplImage* temp = cvLoadImage(name);
-		if (!temp)
-		{
-			break;
-		}
-		imagelist.push_back(temp);
-	}
-	for (auto it : naplist)
-	{
-		bool flag = false;
-		bool find = false;
-		do 
-		{
-			// 查找 
-			int i = 0;
-			for (auto it = imagelist.begin(); it != imagelist.end();/* ++it*/)
-			{
-				if (likeUse::FindAndClick(*it))
-				{
-					TRACE(("操作成功\r\n"));
-					find = true;
-					Sleep(200);
-					it++;
-				}
-				else
-				{
-					TRACE("失败！\r\n");
-					Sleep(500);
-					if (!find)
-					{
-						++it;
-					}
-					likeUse::LClick();
-					continue;
-				}
-				if (i == u)
-				{
-					// 输入账号
-					flag = true;
-				}
-				else if (i == p)
-				{
-					// 输入密码
-					flag = true;
-				}
-				++i;
-			}
-			
-		} while (!flag);
-		
-	}
-
-
 
 }
 

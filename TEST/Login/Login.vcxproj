@@ -111,9 +111,7 @@
     <ClInclude Include="Conf.h" />
     <ClInclude Include="enterkey.h" />
     <ClInclude Include="Feature.h" />
-    <ClInclude Include="fsm.h" />
     <ClInclude Include="ImageTool.h" />
-    <ClInclude Include="likeUse.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="LoginDlg.h" />
     <ClInclude Include="mousetool.h" />
@@ -135,9 +133,7 @@
     <ClCompile Include="Conf.cpp" />
     <ClCompile Include="enterkey.cpp" />
     <ClCompile Include="Feature.cpp" />
-    <ClCompile Include="fsm.cpp" />
     <ClCompile Include="ImageTool.cpp" />
-    <ClCompile Include="likeUse.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginDlg.cpp" />
     <ClCompile Include="mousetool.cpp" />

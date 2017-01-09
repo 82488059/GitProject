@@ -3,7 +3,6 @@
 #include "opencv2/opencv.hpp"
 #include <string>
 #include <vector>
-#include "fsm.h"
 const double MAX_VALUE = 0.986;
 class plug
 {
@@ -59,6 +58,5 @@ public:
 private:
 	static std::vector<NAP> naplist_;
 	static std::vector<std::vector<plug::SOP>> soplist_;
-	static fsm fsm_;
 };
 

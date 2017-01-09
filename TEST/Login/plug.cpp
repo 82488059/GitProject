@@ -9,7 +9,6 @@ char plug::s_name[][260]= { "login", "input", "use", "exit" };
 char plug::s_conf[] = "conf\\conf.ini";
 std::vector<plug::NAP> plug::naplist_;
 std::vector<std::vector<plug::SOP>> plug::soplist_;
-fsm plug::fsm_;
 
 plug::plug()
 {
@@ -81,9 +80,8 @@ bool plug::LoadSOP()
 			soplist_[i].push_back(nap);
 		}
 	}
-	
+    return true;
 
-	return fsm_.LoadConf();
 }
 
 IplImage* plug::Screen()

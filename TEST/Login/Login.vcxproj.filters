@@ -42,16 +42,10 @@
     <ClInclude Include="plug.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="fsm.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Feature.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Conf.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="likeUse.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Seek.h">
@@ -104,16 +98,10 @@
     <ClCompile Include="plug.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="fsm.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Feature.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Conf.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="likeUse.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Seek.cpp">
