@@ -13,6 +13,7 @@ public:
 
 public:
     static bool FindTemplateXY(IplImage*& src, IplImage*& templ, CvPoint& pt, double& maxval);
+    static bool FindTemplateXY(cv::Mat& src, cv::Mat& templ, cv::Point& pt, double& maxval);
 
     static IplImage* Screen();
 

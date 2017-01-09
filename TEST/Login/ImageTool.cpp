@@ -57,6 +57,46 @@ bool ImageTool::FindTemplateXY(IplImage*& src, IplImage*& TempPIC, CvPoint& cpt,
     return true;
 }
 
+bool ImageTool::FindTemplateXY(cv::Mat& src, cv::Mat& TempPIC, cv::Point& cpt, double& maxval)
+{
+    //     IplImage * templ;//模板图像
+    //     IplImage * src;//要搜索的图像
+    cv::Mat RPIC;//算法返回的图像
+    //     templ = cvLoadImage("template\\1.png");
+    //     src = cvLoadImage("2.png");
+
+    DWORD dwBeginTime = ::GetTickCount();
+//     CvSize Rsize;
+//     Rsize.height = src.height - TempPIC.height + 1;
+//     Rsize.width = src.width - TempPIC.width + 1;
+//  RPIC=cvCreateImage(Rsize, 32, 1);
+    int result_cols = src.cols - TempPIC.cols + 1;
+    int result_rows = src.rows - TempPIC.rows + 1;
+    RPIC.create(result_rows, result_cols, src.type());
+
+    cv::matchTemplate(src, TempPIC, RPIC, CV_TM_CCORR_NORMED);
+    //cvNormalize(RPIC,RPIC,1,0,CV_MINMAX);
+    cv::normalize(RPIC, RPIC, 0, 1, cv::NORM_MINMAX);
+    cv::Point point(0, 0);// = cvPoint(0, 0);
+    maxval = 0;
+    cv::Point minLoc, maxLoc, matchLoc;
+    cv::minMaxLoc(RPIC, 0, &maxval, &minLoc, &point);
+    CvRect rect = cvRect(point.x, point.y, TempPIC.cols - 1, TempPIC.rows - 1);
+//     CvPoint pt1 = cvPoint(rect.x, rect.y);
+//     CvPoint pt2 = cvPoint(rect.x + rect.width - 1, rect.y + rect.height - 1);
+//     cvRectangle(src, pt1, pt2, cvScalar(0, 0, 255), 1, 8, 0);
+
+    cpt = cv::Point(rect.x + (rect.width - 1) / 2, rect.y + (rect.height - 1) / 2);
+
+    //cvLine(src, cpt, cpt, CV_RGB(0, 0, 255), 3, 8, 0);
+    TRACE("\r\n识别中心:x=%d,y=%d\r\n", cpt.x, cpt.y);
+    TRACE("相似度:%.4f\r\n", maxval);
+    DWORD dwEndTime = ::GetTickCount();
+    DWORD dwSpaceTime = dwEndTime - dwBeginTime;
+    TRACE("识别时间:%d\r\n", dwSpaceTime);
+    return true;
+}
+
 IplImage* ImageTool::Screen()
 {
     //截屏

@@ -39,24 +39,6 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="plug.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Feature.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Conf.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Seek.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="action.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="click.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="tinystr.h">
       <Filter>xml</Filter>
     </ClInclude>
@@ -84,6 +66,12 @@
     <ClInclude Include="SpaceList.h">
       <Filter>test</Filter>
     </ClInclude>
+    <ClInclude Include="Feature.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="click.h">
+      <Filter>test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Login.cpp">
@@ -93,24 +81,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="plug.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Feature.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Conf.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Seek.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="action.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="click.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="tinystr.cpp">
@@ -144,6 +114,12 @@
       <Filter>test</Filter>
     </ClCompile>
     <ClCompile Include="ImageTool.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="Feature.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="click.cpp">
       <Filter>test</Filter>
     </ClCompile>
   </ItemGroup>
