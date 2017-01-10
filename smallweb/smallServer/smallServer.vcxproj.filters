@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ms">
+      <UniqueIdentifier>{a4e89343-7d8e-4683-b5f2-02ddb63b327b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ms\socket">
+      <UniqueIdentifier>{71c531ce-6ec6-41ab-b4e1-b40d867da82f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ms\http">
+      <UniqueIdentifier>{c2094fe2-b992-4fd9-9d96-bdf7cbab603e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ms\socket\socket.cpp">
+      <Filter>ms\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ms\http\server\server.cpp">
+      <Filter>ms\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ms\http\server\session.cpp">
+      <Filter>ms\http</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\ms\socket\socket.h">
+      <Filter>ms\socket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ms\mstring.h">
+      <Filter>ms</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ms\http\server\server.h">
+      <Filter>ms\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ms\http\server\session.h">
+      <Filter>ms\http</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

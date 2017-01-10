@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<max value="13"></max>
+	
+	<op0 feat="1"></op0>
+	
+	<op1 feat="1"></op1>
+	
+	<op2 feat="1"></op2>
+	
+	<op3 feat="1"></op3>
+		
+	<op4 feat="1" must="1" fgoto="0"></op4>
+		
+	<op5 feat="1" must="1" fgoto="5"></op5>
+		
+	<op6 feat="1" must="1" fgoto="6"></op6>
+		
+	<op7 feat="1" goto="4"></op7>
+		
+	<op8 feat="1"></op8>
+		
+	<op9 feat="1" must="1" fgoto="7"></op9>
+		
+	<op10 feat="1" must="1" fgoto="10"></op10>
+		
+	<op11 feat="1" must="1" fgoto="11"></op11>
+		
+	<op12 feat="1" must="1" fgoto="12"></op12>
+	
+		
+</document>

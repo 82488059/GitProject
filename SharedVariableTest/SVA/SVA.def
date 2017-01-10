@@ -1,0 +1,4 @@
+LIBRARY
+	EXPORTS
+GetValue @1,
+SetValue @2,
