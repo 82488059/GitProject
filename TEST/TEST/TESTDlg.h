@@ -3,7 +3,8 @@
 //
 
 #pragma once
-
+#include <memory>
+#include <thread>
 
 // CTESTDlg ¶Ô»°¿ò
 class CTESTDlg : public CDialogEx
@@ -35,5 +36,12 @@ public:
     afx_msg void OnBnClickedBtGo3();
     afx_msg void OnBnClickedBtGo4();
     afx_msg void OnBnClickedBtGo5();
-    afx_msg void OnBnClickedBtGo6();
+	afx_msg void OnBnClickedBtGo6();
+
+	void while_run();
+	bool run_{ false };
+	std::shared_ptr<std::thread> thread_;
+
+
+	afx_msg void OnBnClickedBtGo7();
 };

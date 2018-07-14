@@ -7,9 +7,10 @@
 #include "TESTDlg.h"
 #include "afxdialogex.h"
 #include <mfc/process.h>
-#include <mfc/screen.h>
+// #include <mfc/screen.h>
 #include <thread>
 #include <memory>
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -72,6 +73,7 @@ BEGIN_MESSAGE_MAP(CTESTDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BT_GO4, &CTESTDlg::OnBnClickedBtGo4)
     ON_BN_CLICKED(IDC_BT_GO5, &CTESTDlg::OnBnClickedBtGo5)
     ON_BN_CLICKED(IDC_BT_GO6, &CTESTDlg::OnBnClickedBtGo6)
+	ON_BN_CLICKED(IDC_BT_GO7, &CTESTDlg::OnBnClickedBtGo7)
 END_MESSAGE_MAP()
 
 
@@ -258,14 +260,13 @@ void CTESTDlg::OnBnClickedBtGo()
 
     wnd->MessageBox(_T("xxx"));
     //HBITMAP hMap = mfc::screen::CopyScreenToBitmap(rect);
-    HBITMAP hMap = mfc::screen::CopyExeScreenToBitmap(wnd, rect);
-    
-    if(NULL == hMap)
+//     HBITMAP hMap = mfc::screen::CopyExeScreenToBitmap(wnd, rect);
+//     if(NULL == hMap)
     {
         return;
     }
-    BOOL ret =mfc::screen::SaveBitmapToFile(hMap, "E:\\局部截图.bmp");
-    if (!ret)
+//     BOOL ret =mfc::screen::SaveBitmapToFile(hMap, "E:\\局部截图.bmp");
+//     if (!ret)
     {
         return;
     }
@@ -386,7 +387,24 @@ void CTESTDlg::OnBnClickedBtGo4()
         SaveHwndToBmpFile(hWnd, _T("E://12.bmp"));
     }
 }
-
+// for key pushing
+BYTE scan_code(DWORD pKey)
+{
+	const DWORD result = MapVirtualKey(pKey, MAPVK_VK_TO_VSC);
+	return static_cast<BYTE>(result);
+}
+void press_key(DWORD pKey)
+{
+	keybd_event(static_cast<BYTE>(pKey), scan_code(pKey), 0, 0);
+}
+void release_key(DWORD pKey)
+{
+	keybd_event(static_cast<BYTE>(pKey), scan_code(pKey), KEYEVENTF_KEYUP, 0);
+}
+// for testing
+#define PRESS(x) press_key(x)//; std::cout << "Press: " #x << std::endl
+#define RELEASE(x) release_key(x)//; std::cout << "Release: " #x << std::endl
+// tests
 
 void CTESTDlg::OnBnClickedBtGo5()
 {
@@ -396,16 +414,12 @@ void CTESTDlg::OnBnClickedBtGo5()
     HWND oldHwnd = NULL;
     for (int i = 0; i < max; ++i)
     {
-        oldHwnd = ::FindWindowEx(NULL, oldHwnd, _T("ConsoleWindowClass"), NULL);
+        oldHwnd = ::FindWindowEx(NULL, oldHwnd, _T("WWW_JUMPW_COM"), NULL);
         if (NULL == oldHwnd)
         {
             break;
         }
         hwnd[i] = oldHwnd;
-    }
-    if (NULL == hwnd[0])
-    {
-        return;
     }
     WORD inputar[8] = { VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8 };
     for (int i = 0; i < max && NULL != hwnd[i]; ++i)
@@ -416,17 +430,26 @@ void CTESTDlg::OnBnClickedBtGo5()
         Sleep(100);
         ::SetForegroundWindow(hwnd[i]);
         ::SetFocus(hwnd[i]);
+
 //         CPoint pt;
 //         GetCursorPos(&pt);//获取鼠标在屏幕的当前位置
 //         SetCursorPos(rc.left + 184, rc.top + 271);//移动到某点坐标
-        SetCursorPos(rc.left + 534, rc.top + 257);//移动到某点坐标
+        SetCursorPos(rc.left + 914, rc.top + 350);//移动到某点坐标
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, WM_LBUTTONDOWN, 0);//点下左键
-        Sleep(100);
-        SetCursorPos(rc.left + 400, rc.top + 257);//移动到某点坐标
+        Sleep(10);
+        //SetCursorPos(rc.left + 915, rc.top + 352);//移动到某点坐标
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, WM_LBUTTONUP, 0);//松开左键
 
-        keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), 0, GetMessageExtraInfo());
-        keybd_event(VK_NUMPAD8, MapVirtualKey(VK_NUMPAD8, 2), KEYEVENTF_KEYUP, GetMessageExtraInfo());
+		//keybd_event(VK_NUMPAD0, MapVirtualKey(VK_NUMPAD0, 0), 0, 0);
+		//keybd_event(VK_NUMPAD0, MapVirtualKey(VK_NUMPAD0, 0), KEYEVENTF_KEYUP, 0);
+		for (int i = 0; i < 8; ++i)
+		{
+			PRESS(VK_NUMPAD0);
+			Sleep(10); // hold it for 1/100'th of a second
+			RELEASE(VK_NUMPAD0);
+			Sleep(1000); // wait for a second
+		}
+
         /*
         keybd_event(keyvalue, 0, 0, 0);
         keybd_event(keyvalue, 0, KEYEVENTF_KEYUP, 0);
@@ -448,12 +471,123 @@ void CTESTDlg::OnBnClickedBtGo5()
 //     mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);//点下左键
 //     mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);//松开左键
 }
-bool srun = true;
-void while_run()
-{
-    while (srun)
-    {
 
+// #define KBC_CMD 0x64
+// #define KBC_DATA 0x60
+
+// void KEY_DOWN(int vk_in)
+// {
+// 	bool bRet = false;
+// 	unsigned int myscancode;
+// 	myscancode = MapVirtualKey(BYTE(vk_in), 0);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_CMD, 0xD2, 1);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_DATA, 0xE2, 1);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_CMD, 0xD2, 1);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_DATA, myscancode, 1);
+// }
+// void KEY_UP(int vk_in)
+// {
+// 	bool bRet = false;
+// 	unsigned myscancode;
+// 	myscancode = MapVirtualKey(BYTE(vk_in), 0);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_CMD, 0xD2, 1);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_DATA, 0xE0, 1);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_CMD, 0xD2, 1);
+// 	KBCWait4IBE();
+// 	bRet = SetPortVal(KBC_DATA, (myscancode | 0x80), 1); //此处需要与上0x80
+//
+
+void CTESTDlg::while_run()
+{
+	// WWW_JUMPW_COM
+    while (run_)
+    {
+		enum{ max = 1 };
+		HWND hwnd[max] = { NULL };
+		HWND oldHwnd = NULL;
+		for (int i = 0; i < max; ++i)
+		{
+			oldHwnd = ::FindWindowEx(NULL, oldHwnd, _T("WWW_JUMPW_COM"), NULL/*_T("《300英雄》9月30日18点 极乐净土（电信）新区开启! ")*/);
+// 			oldHwnd = ::FindWindowEx(NULL, oldHwnd, NULL, _T("Windows 7 x64 - VMware Workstation"));
+			if (NULL == oldHwnd)
+			{
+				break;
+			}
+			hwnd[i] = oldHwnd;
+		}
+		WORD inputar[8] = { VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8, VK_NUMPAD8 };
+		for (int i = 0; i < max && NULL != hwnd[i]; ++i)
+		{
+			CRect rc;
+			::GetWindowRect(hwnd[i], &rc);
+
+
+			::BringWindowToTop(hwnd[i]);
+			::SetForegroundWindow(hwnd[i]);
+			::SetFocus(hwnd[i]);
+			CPoint pt[2];
+			GetCursorPos(&pt[0]);//获取鼠标在屏幕的当前位置
+			//         SetCursorPos(rc.left + 184, rc.top + 271);//移动到某点坐标
+			::SetCursorPos(rc.left + 1090, rc.top + 45);//移动到某点坐标
+			Sleep(100);
+			GetCursorPos(&pt[1]);//获取鼠标在屏幕的当前位置
+			::SendMessage(hwnd[i], WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(rc.left + 1090, rc.top + 45));
+			Sleep(50);
+			::SendMessage(hwnd[i], WM_LBUTTONUP, NULL, MAKELPARAM(rc.left + 1090, rc.top + 45));
+			mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);//点下左键
+			Sleep(50);
+			mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);//松开左键
+			Sleep(1000);
+			mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);//点下左键
+			Sleep(50);
+			mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);//松开左键
+			/*
+			keybd_event(keyvalue, 0, 0, 0);
+			keybd_event(keyvalue, 0, KEYEVENTF_KEYUP, 0);
+			*/
+#if 1
+			INPUT input[2];
+			memset(input, 0, sizeof(input));
+			//按下 向下方向键
+			input[0].type = INPUT_MOUSE;
+			input[1].ki.dwFlags = MOUSEEVENTF_LEFTDOWN;
+			//松开 向下方向键
+			input[1].type = INPUT_MOUSE;
+			input[1].ki.dwFlags = MOUSEEVENTF_LEFTUP;
+			//该函数合成键盘事件和鼠标事件，用来模拟鼠标或者键盘操作。事件将被插入在鼠标或者键盘处理队列里面
+			SendInput(2, input, sizeof(INPUT));
+#else
+			INPUT input[2];
+			memset(input, 0, sizeof(input));
+			//按下 向下方向键
+			input[0].ki.wVk = VK_NUMPAD0;
+			input[0].type = INPUT_KEYBOARD;
+			//松开 向下方向键
+			input[1].ki.wVk = VK_NUMPAD0;
+			input[1].type = INPUT_KEYBOARD;
+			input[1].ki.dwFlags = KEYEVENTF_KEYUP;
+			//该函数合成键盘事件和鼠标事件，用来模拟鼠标或者键盘操作。事件将被插入在鼠标或者键盘处理队列里面
+			SendInput(2, input, sizeof(INPUT));
+			
+#endif
+		}
+		int time = 0;
+		while (run_)
+		{
+			time++;
+			Sleep(500);
+			if (time > 10)
+			{
+				break;
+			}
+		}
     }
 }
 
@@ -464,14 +598,22 @@ void CTESTDlg::OnBnClickedBtGo6()
     
     //th(std::bind(while_run));
 
-    if (thread)
+    if (!thread_)
     {
-        srun = false;
-        thread->join();
-        thread.reset();
+		run_ = true;
+		thread_ = std::make_shared<std::thread>(std::bind(&CTESTDlg::while_run, this));
     }
-    else
-    {
-        thread = std::make_shared<std::thread>(while_run);
-    }
+}
+
+
+void CTESTDlg::OnBnClickedBtGo7()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	if (thread_)
+	{
+		run_ = false;
+		thread_->join();
+		thread_.reset();
+	}
+
 }
