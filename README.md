@@ -33,3 +33,21 @@
 ## TestRegister
   c++获取机器MAC,硬盘序列号生成识别码。
 
+## XListCtrl_demo
+MFC ListCtr美化代码和demo
+
+## XMLDemo
+ 使用msxml2读取xml的demo
+
+## include 
+ c++头文件
+
+## src
+  部分c++常用代码
+
+## smallweb
+ c++调用lua
+
+## test_all
+  一些c++测试代码
+
