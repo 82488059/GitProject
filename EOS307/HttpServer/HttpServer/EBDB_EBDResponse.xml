@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EBD xmlns="http://www.w3.org/2001/XMLSchema">
+	<Version>1.0</Version>
+	<EBDID>1234567890123456</EBDID>
+	<EBDType>EBDResponse</EBDType>
+	<SRC>
+		<AreaCode>130100</AreaCode>
+		<EBEType>EBEAS</EBEType>
+		<EBEName>307调频台</EBEName>
+		<EBEID>1234567890123456</EBEID>
+	</SRC>
+	<EBDTime>2015-04-15 00:00:00</EBDTime>
+	<RelatedEBD>
+		<EBDID>1234567890123456</EBDID>
+	</RelatedEBD>
+	<EBDResponse>
+		<ResultCode>0</ResultCode>
+		<ResultDesc>收到数据未处理</ResultDesc>
+	</EBDResponse>
+</EBD>

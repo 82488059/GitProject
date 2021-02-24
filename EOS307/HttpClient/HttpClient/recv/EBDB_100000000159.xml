@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<EBD xmlns='http://www.w3.org/2001/XMLSchema'>
+<Version>1.0</Version>
+<EBDID>100000000159</EBDID>
+<EBDType>EBDResponse</EBDType>
+<SRC>
+<AreaCode>130000</AreaCode>
+<EBEType>EBEPS</EBEType>
+<EBEName>河北省平台</EBEName>
+<EBEID>P13000001</EBEID>
+</SRC>
+<EBDTime>2015-11-18 14:52:40</EBDTime><EBDResponse>
+<ResultCode>1</ResultCode>
+<ResultDesc>ok,成功</ResultDesc>
+</EBDResponse>
+</EBD>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EBD xmlns="http://www.w3.org/2001/XMLSchema">
+	<Version>1.0</Version>
+	<EBDID>B13010001</EBDID>
+	<EBDType>EBMStateResponse</EBDType>
+	<SRC>
+		<AreaCode>130100</AreaCode>
+		<EBEType>EBEBS</EBEType>
+		<EBEName>307调频台播出系统</EBEName>
+		<EBEID>A13010001</EBEID>
+	</SRC>
+	<EBDTime>2015-04-15 00:00:00</EBDTime>
+	<RelatedEBD>
+		<EBDID>1234567890123456</EBDID>
+	</RelatedEBD>
+	<EBMStateResponse>
+		<EBMID>1234567890123456</EBMID>
+		<RPTTime>2014-01-01 00:00:00</RPTTime>
+		<BRDState>2</BRDState>
+		<Coverage>
+			<CoveragePercent>A13010001</CoveragePercent>
+			<Area>
+				<AreaName>石家庄市</AreaName>
+				<AreaCode>130100</AreaCode>
+				<ResultCode>2</ResultCode>					
+			</Area>
+		</Coverage>	
+		<Broadcast>
+			<EBEST>
+				<RPTTime>2014-01-01 00:00:00</RPTTime>
+				<EBEAS>
+					<EBEID>A13010001</EBEID>
+				</EBEAS>		
+				<EBEBS>
+					<BRDSysType>100000000000000</BRDSysType>
+					<EBEID>B13010001</EBEID>
+					<StartTime>2015-11-22 00:00:00</StartTime>
+					<EndTime>2015-11-23 00:00:00</EndTime>
+					<FileURL>http://192.168.12.1/XXX.mp3</FileURL>
+					<ResultCode>2</ResultCode>
+					<ResultDesc>ok,成功</ResultDesc>
+				</EBEBS>
+			</EBEST>	
+		</Broadcast>
+	</EBMStateResponse>
+</EBD>

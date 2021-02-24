@@ -1,0 +1,42 @@
+<EBMStateResponse>
+	<EBMID></EBMID>
+  <RPTTime>2014-01-01 00:00:00</RPTTime>
+	<BRDState></BRDState>
+	<Coverage>
+		<CoveragePercent></CoveragePercent>
+		<Area>
+			<AreaName></AreaName>
+			<AreaCode></AreaCode>
+			<ResultCode></ResultCode>					
+		</Area>
+		<Area>
+			<AreaName></AreaName>
+			<AreaCode></AreaCode>
+			<ResultCode></ResultCode>
+		</Area>
+	</Coverage>	
+	<Broadcast>
+		<EBEST>
+  		<RPTTime>2014-01-01 00:00:00</RPTTime>
+			<EBEAS>
+				<EBEID></EBEID>
+			</EBEAS>		
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID></EBEID>
+	      <StartTime></StartTime>
+	      <EndTime></EndTime>
+	      <FileURL>http://192.168.12.1/XXX.mp3</FileURL>
+				<ResultCode></ResultCode>
+				<ResultDesc></ResultDesc>
+			</EBEBS>
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID></EBEID>
+				<ResultCode>1</ResultCode>
+				<ResultDesc>OK</ResultDesc>
+			</EBEBS>
+		</EBEST>	
+	</Broadcast>
+</EBMStateResponse>
+

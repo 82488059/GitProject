@@ -1,0 +1,9 @@
+﻿<EBMStateRequest>
+	<!--
+	应急消息ID
+	16位字符，标识一个应急广播消息。
+	通过应急广播平台ID和应急广播消息ID区别其他的应急广播消息。
+	-->
+	<EBMID>1234567890123456</EBMID>
+
+</EBMStateRequest>

@@ -1,0 +1,60 @@
+﻿<EBMStateResponse>
+	<!--对应的应急消息ID-->
+	<EBMID> </EBMID>
+	<!--反馈数据的时间-->
+  <RPTTime>2014-01-01 00:00:00</RPTTime>
+	<!--播发状态标志，1：未结束 2：已结束，该字段表明当前的应急广播消息播发是否已完成-->
+	<BRDState></BRDState>
+	<!--实际覆盖行政区域,该数据元素为可选-->
+	<Coverage>
+		<!--实际覆盖区域百分比-->
+		<CoveragePercent></CoveragePercent>
+		<!--区域，可为多个-->
+		<Area>
+		<!--区域名称-->
+			<AreaName> </AreaName>
+		  <!--区域代码-->
+			<AreaCode> </AreaCode>
+			<!--覆盖结果,1：已覆盖，2：未覆盖-->
+			<ResultCode></ResultCode>					
+		</Area>
+		<Area>
+			<AreaName> </AreaName>
+			<AreaCode> </AreaCode>
+			<ResultCode></ResultCode>
+		</Area>
+	</Coverage>	
+	<!--台站播发数据详情-->
+	<Broadcast>
+		<!--台站播出情况，可为多个-->
+		<EBEST>
+			<!--台站反馈时间-->
+  		<RPTTime>2014-01-01 00:00:00</RPTTime>
+			<EBEAS>
+				<EBEID> </EBEID>
+			</EBEAS>		
+			<!--播出系统的播出详情，可为多个-->	
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+	      <!--播发起始时间-->
+	      <StartTime></StartTime>
+	      <!--播发结束时间-->
+	      <EndTime></EndTime>
+	      <!--播发录音文件地址-->
+	      <FileURL>http://192.168.12.1/XXX.mp3</FileURL>
+	      <!--执行结果代码 1：成功 2：失败-->
+				<ResultCode></ResultCode>
+				<!--执行结果描述，格式为:[当前执行步骤][执行点][执行点的具体结果描述]-->
+				<ResultDesc></ResultDesc>
+			</EBEBS>
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+				<ResultCode></ResultCode>
+				<ResultDesc></ResultDesc>
+			</EBEBS>
+		</EBEST>	
+	</Broadcast>
+</EBMStateResponse>
+

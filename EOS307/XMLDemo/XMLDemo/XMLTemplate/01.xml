@@ -1,0 +1,129 @@
+﻿<EBM>
+	<!--
+	应急消息ID
+	16位字符，标识一个应急广播消息。
+	通过应急广播平台ID和应急广播消息ID区别其他的应急广播消息。
+	-->
+	<EBMID>1234567890123456</EBMID>
+	<!--
+	消息类型
+	1 直接播发
+	2 委托播发
+	3 停止播发
+	-->
+	<MsgType></MsgType>
+	<!--
+	播发演练类型
+	1	应急消息播发（非演练）
+	2	平台演练（发布系统演练）
+	3	前端演练（模拟演练）
+	4	终端演练（实际演练）
+	-->
+	<ExerciseType></ExerciseType>
+	<!--消息发布者-->
+	<Sender>气象局</Sender>
+	<!--消息发布时间-->
+	<SentTime>2014-01-01 00:00:00</SentTime>
+	<!--播发起始时间-->
+	<StartTime></StartTime>
+	<!--播发结束时间-->
+	<EndTime></EndTime>
+	<!--消息内容-->
+	<MsgDesc>某地暴雨</MsgDesc>
+	<!--
+	事件类型
+	EventType:
+	国家应急平台体系信息资源分类与编码规范
+	-->
+	<EventType>1</EventType>
+	<!--
+	事件级别
+	Severity:取值范围0～15，表示突发事件的级别，
+	按照《国家突发公共事件总体应急预案》（2006）
+	中1.3节对突发公共事件的分级定义-->
+	<Severity>1</Severity>
+	<!--语种代码-->
+	<Language>1</Language>
+	<!--编码字符集-->
+	<CharSet>gb2312</CharSet>
+	<!--辅助数据,该数据元素可为0个或多个-->
+	<Auxiliary>
+		<!--辅助数据类型
+		61：实时流-->
+		<AuxiliaryType>61</AuxiliaryType>
+		<!--辅助数据描述-->
+		<AuxiliaryDesc>协议://主机名:端口/路径/参数</AuxiliaryDesc>
+	</Auxiliary>
+	<!--覆盖行政区域,该数据元素为可选-->
+	<Coverage>
+		<!--区域-->
+		<Area>
+		<!--区域名称-->
+			<AreaName> </AreaName>
+		<!--区域代码-->
+			<AreaCode> </AreaCode>
+		</Area>
+		<Area>
+			<AreaName> </AreaName>
+			<AreaCode> </AreaCode>
+		</Area>
+	</Coverage>
+	<!--调度数据，该数据元素为可选-->
+	<Dispatch>
+		<!--数据回传，该数据元素为可选-->
+		<DataReturn>
+			<!--URL地址-->
+			<URL>协议://主机名[:端口]/路径</URL>
+			<!--短信号码-->
+			<Tel>13999999999</Tel>
+		</DataReturn>
+		<!--台站调度指令数据，可为多个-->
+		<StationDispatch>
+			<EBEAS>
+					<!--应急广播消息适配器ID-->
+				<EBEID> </EBEID>			
+			</EBEAS>
+			<!--应急广播播出系统，可为多个-->
+			<EBEBS>
+				<!--
+				播出系统类型
+				指示应急广播消息发布需要调用的广播电视播出系统类型
+				15位数字码，每一位取值“0”或“1”，分别代表不调用或调用对应位所代表的广播电视系统
+				从左往右：
+				第1位：调频广播
+				第2位：中波广播
+				第3位：短波广播
+				第4位：有线数字电视
+				第5位：有线模拟电视
+				第6位：地面数字电视
+				第7位：地面模拟电视
+				第8位：直播卫星
+				第9位：卫星电视（DVB-S）
+				第10位：移动多媒体广播电视
+				第11位：数字音频广播
+				第12位：应急广播村村响
+				第13位~15位:预留				
+				-->
+				<BRDSysType></BRDSysType>
+				<!--播出系统编号-->
+				<EBEID> </EBEID>
+				<EBEID> </EBEID>
+			</EBEBS>
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+				<EBEID> </EBEID>
+			</EBEBS>
+		</StationDispatch>
+		<StationDispatch>
+			<EBEAS>
+				<EBEID> </EBEID>
+			</EBEAS>			
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+				<EBEID> </EBEID>
+			</EBEBS>
+		</StationDispatch>
+	</Dispatch>
+</EBM>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--应急广播数据包-->
+<EBD xmlns="http://www.w3.org/2001/XMLSchema">
+	<!--协议版本，目前为1.0-->
+	<Version>1.0</Version>
+	<!--应急广播数据包ID，唯一标识，12位数字码，从100000000000开始编号，编号规则自定，心跳包固定为000000000009。-->
+	<EBDID>1234567890123456</EBDID>
+	<!--数据包类型-->
+	<EBDType>XXXData</EBDType>
+	<!--数据包来源对象-->
+	<SRC>
+		<!--地区编码，12个数字，省市县（6个数字）县以下（6个数字）
+		其中省市县编码参见GBT2260-2007《中华人民共和国行政区划代码》，其余参见各地具体编码-->
+		<AreaCode></AreaCode>
+		<!--实体分类
+		EBEAS: 应急广播消息适配器/设备/系统，类型号A
+		EBEPS:应急广播平台（系统），类型号P
+		EBETD:应急广播终端设备，类型号T
+		EBEPD:应急广播平台设备，类型号D
+		EBEBS:应急广播播出系统/资源,类型号B
+		EBEST:应急广播部署台站，类型号S
+		EBEXS:其他实体，类型号为O
+		-->
+		<EBEType></EBEType>
+		<!--实体名称-->
+		<EBEName></EBEName>
+		<!--实体编号（标识），
+		对于应急广播平台设备和应急广播终端设备而言，编号规则：类型号（1个字符）省市县（6个数字）县以下（6个数字）设备号（2个数字）
+		对于其他而言，编号规则：类型号（1个字符）省市县（6个数字）县以下（6个数字）扩展（2个数字）
+		-->
+		<EBEID></EBEID>
+	</SRC>
+	<!--数据包目标对象，可选项-->
+	<DEST>
+		<AreaCode></AreaCode>
+		<EBEType></EBEType>
+		<EBEName></EBEName>
+		<EBEID></EBEID>
+	</DEST>
+	<!--数据包生成时间，格式为YYYY-MM-DD hh:mm:ss-->
+	<EBDTime>2015-04-15 00:00:00</EBDTime>
+	<!--关联EBD数据包，可选项
+	如果本数据包是对之前某数据包的响应，关联EBD数据包ID为前数据包的EBDID-->
+	<RelatedEBD>
+		<!--关联EBD数据包ID-->
+		<EBDID>1234567890123456</EBDID>
+	</RelatedEBD>
+	<!--XXX业务数据，具体参见各业务数据文件的XML文件。-->
+	<XXXData></XXXData>
+</EBD>

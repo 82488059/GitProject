@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EBD xmlns="http://www.w3.org/2001/XMLSchema">
+	<Version>1.0</Version>
+	<EBDID>100000000010</EBDID>
+	<EBDType>EBDResponse</EBDType>
+	<SRC>
+		<AreaCode></AreaCode>
+		<EBEType></EBEType>
+		<EBEName></EBEName>
+		<EBEID></EBEID>
+	</SRC>
+	<EBDTime>2015-04-15 00:00:00</EBDTime>
+	<RelatedEBD>
+		<EBDID>100000000010</EBDID>
+	</RelatedEBD>
+	<EBDResponse xmlns="">
+		<ResultCode></ResultCode>
+		<ResultDesc></ResultDesc>
+	</EBDResponse>
+</EBD>

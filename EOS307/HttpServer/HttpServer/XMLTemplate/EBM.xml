@@ -1,0 +1,55 @@
+<EBM>
+	<EBMID>1234567890123456</EBMID>
+	<MsgType></MsgType>
+	<ExerciseType></ExerciseType>
+	<Sender>气象局</Sender>
+	<SentTime>2014-01-01 00:00:00</SentTime>
+	<StartTime></StartTime>
+	<EndTime></EndTime>
+	<MsgDesc>某地暴雨</MsgDesc>
+	<EventType>1</EventType>
+	<Severity>1</Severity>
+	<Language>1</Language>
+	<CharSet>gb2312</CharSet>
+	<Auxiliary>
+		<AuxiliaryType>61</AuxiliaryType>
+		<AuxiliaryDesc>协议://主机名:端口/路径/参数</AuxiliaryDesc>
+	</Auxiliary>
+	<Coverage>
+		<Area>
+			<AreaName> </AreaName>
+			<AreaCode> </AreaCode>
+		</Area>
+	</Coverage>
+	<Dispatch>
+		<DataReturn>
+			<URL>协议://主机名[:端口]/路径</URL>
+			<Tel>13999999999</Tel>
+		</DataReturn>
+		<StationDispatch>
+			<EBEAS>
+				<EBEID> </EBEID>			
+			</EBEAS>
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+				<EBEID> </EBEID>
+			</EBEBS>
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+				<EBEID> </EBEID>
+			</EBEBS>
+		</StationDispatch>
+		<StationDispatch>
+			<EBEAS>
+				<EBEID> </EBEID>
+			</EBEAS>			
+			<EBEBS>
+				<BRDSysType></BRDSysType>
+				<EBEID> </EBEID>
+				<EBEID> </EBEID>
+			</EBEBS>
+		</StationDispatch>
+	</Dispatch>
+</EBM>
