@@ -2,15 +2,6 @@
 #include <stdlib.h>
 #include "exp1.h"
 
-int output()
-{
-	for (int i = 0; i < 100; ++i)  
-		if (i & 1)  
-			printf("%d ", i);  
-	printf("\n");
-	return 0;
-}
-
 void swap(int &a, int &b)
 {
 	a ^= b; // a = a^b
@@ -26,4 +17,19 @@ int SignReversal(int a)
 int my_abs(int a)
 {
 	return (a^(a >> ((sizeof(int) << 3) - 1))) + 1;
+}
+
+int test_exp1()
+{
+	int a = 11, b = 12;
+	printf("a=%d, b=%d\n", a, b);
+	swap(a, b);
+	printf("a=%d, b=%d\n", a, b);
+	int c = -11;
+	int d = -15;
+	printf("%d\n%d", SignReversal(c), SignReversal(d));
+	d = my_abs(d);
+	printf("abs=%d\n", d);
+
+	return 0;
 }

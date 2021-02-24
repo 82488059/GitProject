@@ -6,7 +6,6 @@ struct ThreadNum{
 	int num;
 };
 
-
 int tally = 0;//glable
 
 unsigned int __stdcall ThreadProc(PVOID pm)
@@ -39,5 +38,31 @@ DWORD WINAPI ThreadFun(LPVOID pM)
 
 	static int nIndex = 0;
 	printf("第%d个子线程ID号是%d\n", ++nIndex, GetCurrentThreadId());
+	return 0;
+}
+
+
+
+int main4()
+{
+	enum { MAXHANDLE = 10 };
+	HANDLE handle[MAXHANDLE];
+
+	struct ThreadNum nIndexThread[10];
+
+	for (int i = 0; i < MAXHANDLE; ++i)
+	{
+		nIndexThread[i].num = i + 1;
+		handle[i] = (HANDLE)_beginthreadex(NULL, 0, ThreadNumOff, (void*)&nIndexThread[i], 0, NULL);
+	}
+
+	WaitForMultipleObjects(MAXHANDLE, handle, TRUE, INFINITE);
+
+	for (int i = 0; i < MAXHANDLE; ++i)
+	{
+		CloseHandle(handle[i]);
+	}
+
+	getchar();
 	return 0;
 }

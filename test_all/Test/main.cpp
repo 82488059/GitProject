@@ -1,51 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "main.h"
-#include <process.h>  
-#include <windows.h>
-
-// #include"threadProc.h"
-
-struct ThreadNum{
-	int num;
-};
-
-// 
-// int main()
-// {
-// 	
-// 	getchar();
-// 	return 0;
-// }
-// 
+#include <iostream>
+#include <list>
+#include "test_list_sort.h"
+#include "exp1.h"
 
 
-#if 0
-int main4()
+int main()
 {
-	enum{MAXHANDLE = 10};
-	HANDLE handle[MAXHANDLE];
-
-	struct ThreadNum nIndexThread[10];
-	
-	for (int i = 0; i < MAXHANDLE; ++i)
-	{
-		nIndexThread[i].num = i+1;
-		handle[i] = (HANDLE)_beginthreadex(NULL, 0, ThreadNumOff, (void*)&nIndexThread[i], 0, NULL);
-	}
-
-	WaitForMultipleObjects(MAXHANDLE, handle, TRUE, INFINITE);
-
-	for (int i = 0; i < MAXHANDLE; ++i)
-	{
-		CloseHandle(handle[i]);
-	}
-
-	getchar();
+	test_exp1();
 	return 0;
 }
-#endif
+ 
+
+
+
 #if 0
 int main3()
 {
@@ -97,22 +64,6 @@ int main2()
 
 
 
-#if 0
-int main1()
-{
-	output();
-	int a=11,b=12;
-	printf("a=%d, b=%d\n", a, b);
-	swap(a, b);
-	printf("a=%d, b=%d\n", a, b);
 
-	int c = -11;
-	int d = -15;
-	printf("%d\n%d", SignReversal(c), SignReversal(d));
 
-	d = my_abs(d);
-	
-	getchar();
-	return 0;
-}
-#endif
+
