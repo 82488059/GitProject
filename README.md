@@ -1,54 +1,25 @@
-# GittProject
-测试集合
+# GitProject
 
+个人 C/C++（及少量 C#）小 Demo 合集。
 
-## aes 
- c++ aes加密demo
+## 子项目
 
-## CPngButton
-  png按钮demo
+| 目录 | 说明 |
+|------|------|
+| aes | C++ AES 加密 demo |
+| CPngButton | PNG 按钮 demo |
+| C_PY | C 调用 Python demo |
+| EOS307 | EOS307 相关 demo |
+| HttpClient | C++ HTTP 客户端 |
+| HttpServer | C++ HTTP 服务端 |
+| RearInventor | C# 幻想西游培养模拟 |
+| SharedVariableTest | C++ DLL 试验 |
+| TEST | OpenCV 识图 / 魔兽相关试验 |
+| TestHtml | MFC HTML 对话框 |
+| TestRegister | 读取网卡 MAC、硬盘序列号等 |
+| XListCtrl_demo | MFC ListCtrl 增强 demo |
+| XMLDemo | MSXML2 读 XML |
+| smallweb | C++ 嵌入 Lua |
+| include / src / test_all | 公共头、常用代码与测试 |
 
-## C_PY
-  c调用python的demo
-
-## EOS307
-  EOS307测试demo
-
-## HttpClient
-  c++ http 请求客户端
-
-## HttpServer
-  c++ http 服务端
-
-## RearInventor
-  c# 大话2 养育模拟器
-
-## SharedVariableTest
-  c++ dll 测试
-
-## TEST
-  c++使用opencv图片识别自动玩魔法禁书。
-
-## TestHtml
-  MFC html对话框测试
-
-## TestRegister
-  c++获取机器MAC,硬盘序列号生成识别码。
-
-## XListCtrl_demo
-MFC ListCtr美化代码和demo
-
-## XMLDemo
- 使用msxml2读取xml的demo
-
-## include 
- c++头文件
-
-## src
-  部分c++常用代码
-
-## smallweb
- c++调用lua
-
-## test_all
-  一些c++测试代码
+各子目录独立打开对应工程或源文件即可，无统一顶层构建。
