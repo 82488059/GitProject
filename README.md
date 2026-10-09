@@ -1,5 +1,4 @@
-# GitProject
-
+# cpp-demo-collection
 个人 C/C++（及少量 C#）小 Demo 合集。
 
 ## 子项目
